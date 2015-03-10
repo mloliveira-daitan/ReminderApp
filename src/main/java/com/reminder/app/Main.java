@@ -14,15 +14,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReminderApp
+public class Main
 {
 
     private static String userId = "u-u3i5n4q67rsx6pyonygisuy";
     private static String apiToken =  "t-3wh3i5ygp3a2ar6mjjmxjfy" ;
     private static String apiSecret = "yj2aruhgfrazr7bn2uaz5t5fugfjv22imprq3rq";
-
-
-
 
    // BandwidthClient.setInstance(userId, apiToken, apiSecret);
 
