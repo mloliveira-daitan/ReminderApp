@@ -33,7 +33,7 @@ public class Main
 
         String webappDirLocation = "src/main/webapp/";
 
-        String webPort = "8281";
+        String webPort = "7048";
 
         Server server = new Server(Integer.valueOf(webPort));
         WebAppContext root = new WebAppContext();
