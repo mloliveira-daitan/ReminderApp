@@ -11,7 +11,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MainMenu</servlet-name>
+        <servlet-name>Servlet</servlet-name>
         <url-pattern>/mainmenu</url-pattern>
     </servlet-mapping>
 
