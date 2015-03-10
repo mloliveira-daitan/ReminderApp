@@ -6,9 +6,9 @@
          version="2.5">
 
 
-   <!-- <welcome-file-list>
+    <welcome-file-list>
         <welcome-file>/webui/index.html</welcome-file>
-    </welcome-file-list>-->
+    </welcome-file-list>
 
     <servlet>
         <servlet-name>ServletJava</servlet-name>
