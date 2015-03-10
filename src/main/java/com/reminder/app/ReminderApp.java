@@ -36,7 +36,7 @@ public class ReminderApp
 
         String webappDirLocation = "src/main/webapp/";
 
-        String webPort = "8080";
+        String webPort = "8281";
 
         Server server = new Server(Integer.valueOf(webPort));
         WebAppContext root = new WebAppContext();
