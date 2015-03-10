@@ -59,9 +59,9 @@ public class ReminderApp
 
         server.start();
         server.join();
-    /*
 
 
+/*
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
         Call call = Call.create(toNumber, fromNumber);
         waitForCallState(call);
@@ -88,12 +88,12 @@ public class ReminderApp
         System.out.println(BandwidthClient.getInstance().getBaseResourceUri(BandwidthConstants.GATHER_URI_PATH));
 
 
-        //RestResponse resp = BandwidthClient.getInstance().get(BandwidthConstants.GATHER_URI_PATH"Band/v1/users/{userId}/calls/{callId}/gather/{gatherId");
+        RestResponse resp = BandwidthClient.getInstance().get(BandwidthConstants.GATHER_URI_PATH"Band/v1/users/{userId}/calls/{callId}/gather/{gatherId");
 
 
         Thread.sleep(20000);
-        call.hangUp();
-*/
+        call.hangUp();*/
+
     }
 
     protected static void waitForCallState(Call call) throws Exception {

@@ -7,13 +7,12 @@
 
     <servlet>
         <servlet-name>ServletJava</servlet-name>
-        <servlet-class>com.reminder.app.Servlet</servlet-class>
-
+        <servlet-class>com.reminder.app.ReminderApp</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>ServletJava</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
 </web-app>
