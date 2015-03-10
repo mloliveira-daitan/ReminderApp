@@ -6,13 +6,14 @@
          version="2.5">
 
     <servlet>
-        <servlet-name>Servlet</servlet-name>
+        <servlet-name>ServletJava</servlet-name>
         <servlet-class>com.reminder.app.Servlet</servlet-class>
+
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/mainmenu</url-pattern>
+        <servlet-name>ServletJava</servlet-name>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
 </web-app>
