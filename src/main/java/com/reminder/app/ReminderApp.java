@@ -7,6 +7,8 @@ import com.bandwidth.sdk.model.Gather;
 import com.bandwidth.sdk.model.Gender;
 import com.bandwidth.sdk.model.events.EventBase;
 import org.apache.http.HttpResponse;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +32,34 @@ public class ReminderApp
     // via the dev console or with the SDK (see AllocateNumberExample)
 
     public static void main( String[] args ) throws Exception {
+
+
+        String webappDirLocation = "src/main/webapp/";
+
+        String webPort = "8080";
+
+        Server server = new Server(Integer.valueOf(webPort));
+        WebAppContext root = new WebAppContext();
+
+        root.setContextPath("/");
+        root.setDescriptor(webappDirLocation + "/web.xml");
+        root.setResourceBase(webappDirLocation);
+
+        // Parent loader priority is a class loader setting that Jetty accepts.
+        // By default Jetty will behave like most web containers in that it will
+        // allow your application to replace non-server libraries that are part
+        // of the
+        // container. Setting parent loader priority to true changes this
+        // behavior.
+        // Read more here:
+        // http://wiki.eclipse.org/Jetty/Reference/Jetty_Classloading
+        root.setParentLoaderPriority(true);
+
+        server.setHandler(root);
+
+        server.start();
+        server.join();
+    /*
 
 
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
@@ -63,7 +93,7 @@ public class ReminderApp
 
         Thread.sleep(20000);
         call.hangUp();
-
+*/
     }
 
     protected static void waitForCallState(Call call) throws Exception {
