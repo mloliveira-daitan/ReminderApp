@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>ServletJava</servlet-name>
-        <servlet-class>com.reminder.app.ReminderApp</servlet-class>
+        <servlet-class>com.reminder.app.Servlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
