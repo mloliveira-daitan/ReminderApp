@@ -7,7 +7,7 @@
 
 
     <welcome-file-list>
-        <welcome-file>/webui/index.html</welcome-file>
+        <welcome-file>src/main/webui/index.html</welcome-file>
     </welcome-file-list>
 
     <servlet>
