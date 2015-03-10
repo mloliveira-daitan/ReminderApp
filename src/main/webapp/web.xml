@@ -6,7 +6,7 @@
          version="2.5">
 
     <servlet>
-        <servlet-name>MainMenu</servlet-name>
+        <servlet-name>Servlet</servlet-name>
         <servlet-class>com.reminder.app.Servlet</servlet-class>
     </servlet>
 
