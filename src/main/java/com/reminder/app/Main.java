@@ -24,7 +24,7 @@ public class Main
    // BandwidthClient.setInstance(userId, apiToken, apiSecret);
 
 
-    private static String toNumber = "+15302987471";// your phone number here
+    private static String toNumber = "+15302987472";// your phone number here
     private static String fromNumber = "+12093898531";// this is a number that is allocated on the AppPlatform. You can do this
     // via the dev console or with the SDK (see AllocateNumberExample)
 
@@ -56,14 +56,14 @@ public class Main
 
         server.start();
         server.join();
-
-
 /*
+
+
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
         Call call = Call.create(toNumber, fromNumber);
         waitForCallState(call);
 
-        System.out.println(call.toString());
+        System.out.println(call.toString() + "\n"+"\n" + call.getCallbackUrl() + "\n");
 
         Map<String, Object> gatherParams = new HashMap<String, Object>();
         gatherParams.put("maxDigits", "5" );
@@ -85,7 +85,7 @@ public class Main
         System.out.println(BandwidthClient.getInstance().getBaseResourceUri(BandwidthConstants.GATHER_URI_PATH));
 
 
-        RestResponse resp = BandwidthClient.getInstance().get(BandwidthConstants.GATHER_URI_PATH"Band/v1/users/{userId}/calls/{callId}/gather/{gatherId");
+        //RestResponse resp = BandwidthClient.getInstance().get(BandwidthConstants.GATHER_URI_PATH"Band/v1/users/{userId}/calls/{callId}/gather/{gatherId");
 
 
         Thread.sleep(20000);
