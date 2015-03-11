@@ -29,13 +29,13 @@ public class Main
 // via the dev console or with the SDK (see AllocateNumberExample)
 
     public static void main( String[] args ) throws Exception {
-/*
+
 
         String webappDirLocation = "src/main/webapp/";
 
         String webPort = System.getenv("PORT");
         if (webPort == null || webPort.isEmpty()) {
-            webPort = "8083";
+            webPort = "8080";
         }
 
         Server server = new Server(Integer.valueOf(webPort));
@@ -59,8 +59,9 @@ public class Main
 
         server.start();
         server.join();
-*/
+     /* BandwidthClient.getInstance().setEndpointandVersion("https://api.dev.catapult.inetwork.com", "v1");
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
+
         Call call = Call.create(toNumber, fromNumber);
         Thread.sleep(6000);
 
@@ -90,7 +91,7 @@ public class Main
 
 
         Thread.sleep(20000);
-        call.hangUp();
+        call.hangUp();*/
 
     }
 

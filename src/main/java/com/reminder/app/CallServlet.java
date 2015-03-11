@@ -5,16 +5,17 @@ import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
 
-public class Servlet extends HttpServlet{
+public class CallServlet extends HttpServlet{
 /*
     protected void service (HttpServletRequest request,
                             HttpServletResponse response)
@@ -58,8 +59,8 @@ public static final Logger logger = Logger
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         logger.finer("doPost(ENTRY)");
 
-        displayHeaders(req);
-        displayParameters(req);
+        //displayHeaders(req);
+        //displayParameters(req);
 
         try {
             String body = getBody(req);
@@ -88,7 +89,7 @@ public static final Logger logger = Logger
             logger.fine("adding event to queue");
             //queue.add(event);
             PrintWriter out = resp.getWriter();
-            out.println("<h1>" + message + "</h1>");
+            out.println("<h1>" + message + " @POST </h1>");
             out.println("<h1>" + baseUrl + "</h1>");
             out.println("<h1>" + body + "</h1>");
 
@@ -113,6 +114,8 @@ public static final Logger logger = Logger
             throws ServletException, IOException {
         logger.finer("doGet(ENTRY)");
 
+        String body = getBody(req);
+
         String callLeg = req.getParameter("callLeg");
         String requestUrl = req.getRequestURL().toString();
         String requestUri = req.getRequestURI();
@@ -132,13 +135,37 @@ public static final Logger logger = Logger
 
         logger.finer("baseUrl:" + baseUrl);
 
-        String body = getBody(req);
+
         PrintWriter out = resp.getWriter();
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + message + " @GET </h1>");
         out.println("<h1>" + baseUrl + "</h1>");
         out.println("<h1>" + body + "</h1>");
 
+        try {
+            Call call = Call.create(toNumber, fromNumber);
+            Thread.sleep(6000);
 
+            System.out.println(call.toString() + "\n"+"\n" + call.getCallbackUrl() + "\n");
+
+            Map<String, Object> gatherParams = new HashMap<String, Object>();
+            gatherParams.put("maxDigits", "5" );
+
+            Map<String, Object> promptParams = new HashMap<String, Object>();
+            String reminderSentence = "Hello! This is the appointment reminder app from Bandwidth." +
+                    " Your appointment is scheduled to Wednesday at 3 PM. . ." + "Please press 1 to end this call. " +
+                    "Press 2 to receive directions or press 3 to repeat this menu.";
+            promptParams.put("sentence", reminderSentence);
+            promptParams.put("voice", "kate");
+            promptParams.put("gender", "female");
+            promptParams.put("locale", "en_US");
+
+            call.createGather(gatherParams, promptParams);
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        body = getBody(req);
+        out.println("<h1>" + body + "</h1>");
 
 
         logger.finer("doGet(EXIT)");
@@ -172,61 +199,6 @@ public static final Logger logger = Logger
         return sb.toString();
     }
 
-    /**
-     * Displays the request headers
-     *
-     * @param req
-     */
-    protected void displayHeaders(HttpServletRequest req) {
-        logger.finest("displayHeaders(ENTRY)");
-
-        Enumeration names = req.getHeaderNames();
-
-        while (names.hasMoreElements()) {
-            String name = (String) names.nextElement();
-            StringBuffer buf = new StringBuffer(name + ":");
-
-            Enumeration headers = req.getHeaders(name);
-
-            while (headers.hasMoreElements()) {
-                String header = (String) headers.nextElement();
-
-                buf.append(header + ",");
-            }
-            logger.finest(buf.toString());
-        }
-
-        logger.finest("displayHeaders(EXIT)");
-    }
-
-    /**
-     * Displays the parameters from the request
-     *
-     * @param req
-     */
-    protected void displayParameters(HttpServletRequest req) {
-        logger.finest("displayParameters(ENTRY)");
-
-        Enumeration keys = req.getParameterNames();
-
-        while (keys.hasMoreElements()) {
-            String key = (String) keys.nextElement();
-
-            // To retrieve a single value
-            String value = req.getParameter(key);
-            logger.finer(key + ":" + value);
-
-            // If the same key has multiple values (check boxes)
-            String[] valueArray = req.getParameterValues(key);
-
-            for (int i = 0; i > valueArray.length; i++) {
-                logger.finest("VALUE ARRAY" + valueArray[i]);
-            }
-
-        }
-
-        logger.finest("displayParameters(EXIT)");
-    }
 
 
     public void destroy()

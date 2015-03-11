@@ -20,4 +20,14 @@
         <url-pattern>/servlet/</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CallServlet</servlet-name>
+        <servlet-class>com.reminder.app.CallServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CallServlet</servlet-name>
+        <url-pattern>/call/</url-pattern>
+    </servlet-mapping>
+
 </web-app>
