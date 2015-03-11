@@ -1,5 +1,6 @@
 package com.reminder.app;
 
+import com.bandwidth.sdk.BandwidthClient;
 import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
@@ -46,6 +47,7 @@ public static final Logger logger = Logger
         // Do required initialization
         message = "Hello World";
         try {
+            BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
             Call call = Call.create(toNumber,fromNumber);
             message = call.getCallbackUrl();
         } catch (Exception e) {
