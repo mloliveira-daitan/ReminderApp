@@ -35,7 +35,15 @@ public class Servlet extends HttpServlet{
         // Actual logic goes here.
         PrintWriter out = response.getWriter();
         out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + request.getRequestURI() + "</h1>");
+        out.println("<h1>" + request.getRequestURL() + "</h1>");
+
+
     }
+
+    
+
+
 
     public void destroy()
     {

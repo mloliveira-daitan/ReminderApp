@@ -59,12 +59,10 @@ public class Main
 
         server.start();
         server.join();
-/*
-
 
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
         Call call = Call.create(toNumber, fromNumber);
-        waitForCallState(call);
+        Thread.sleep(6000);
 
         System.out.println(call.toString() + "\n"+"\n" + call.getCallbackUrl() + "\n");
 
@@ -92,7 +90,7 @@ public class Main
 
 
         Thread.sleep(20000);
-        call.hangUp();*/
+        call.hangUp();
 
     }
 
