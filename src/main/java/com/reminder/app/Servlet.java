@@ -1,7 +1,5 @@
 package com.reminder.app;
 
-import com.bandwidth.sdk.*;
-import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
 
@@ -24,7 +22,7 @@ public class Servlet extends HttpServlet{
         out.println("</html>");
     }*/
 public static final Logger logger = Logger
-        .getLogger(com.reminder.app.MainApp.class.getName());
+        .getLogger(Main.class.getName());
 
     private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
     private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;
