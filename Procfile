@@ -1,1 +1,1 @@
-web: java  $JAVA_OPTS -cp target/classes:target/dependency* com.reminder.app.Main -Dhttp.port=$PORT $PLAY_OPTS
+web: java  $JAVA_OPTS -cp target/classes:target/dependency* Main -Dhttp.port=$PORT 
