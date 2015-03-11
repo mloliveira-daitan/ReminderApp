@@ -26,7 +26,6 @@
       <groupId>com.bandwidth.sdk</groupId>
       <artifactId>bandwidth-java-sdk</artifactId>
       <version>1.6</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -54,7 +53,6 @@
           <artifactId>httpclient</artifactId>
           <version>4.3.5</version>
       </dependency>
-
   </dependencies>
 
 

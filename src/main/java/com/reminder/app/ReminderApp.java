@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Main
+public class ReminderApp
 {
 
     private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
@@ -29,7 +29,7 @@ public class Main
 // via the dev console or with the SDK (see AllocateNumberExample)
 
     public static void main( String[] args ) throws Exception {
-
+/*
 
         String webappDirLocation = "src/main/webapp/";
 
@@ -59,7 +59,7 @@ public class Main
 
         server.start();
         server.join();
-
+*/
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
         Call call = Call.create(toNumber, fromNumber);
         Thread.sleep(6000);

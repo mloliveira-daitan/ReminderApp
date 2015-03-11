@@ -1,7 +1,5 @@
 package com.reminder.app;
 
-import com.bandwidth.sdk.BandwidthClient;
-import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
 
@@ -24,7 +22,7 @@ public class Servlet extends HttpServlet{
         out.println("</html>");
     }*/
 public static final Logger logger = Logger
-        .getLogger(Main.class.getName());
+        .getLogger(ReminderApp.class.getName());
 
     private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
     private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;
@@ -46,35 +44,8 @@ public static final Logger logger = Logger
     {
         // Do required initialization
         message = "Hello World";
-        try {
-            BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
-            Call call = Call.create(toNumber,fromNumber);
-            message = call.getCallbackUrl();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
-/*
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, IOException
-    {
-        // Set response content type
-        response.setContentType("text/html");
 
-        // Actual logic goes here.
-        PrintWriter out = response.getWriter();
-        out.println("<h1>" + message + "</h1>");
-        out.println("<h1>" + request.getRequestURI() + "</h1>");
-        out.println("<h1>" + request.getRequestURL() + "</h1>");
-        try {
-            Call call = Call.create("", "");
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
-
-    }*/
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         logger.finer("doPost(ENTRY)");
