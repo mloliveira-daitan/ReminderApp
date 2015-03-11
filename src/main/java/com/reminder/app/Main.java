@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReminderApp
+public class Main
 {
 
     private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
