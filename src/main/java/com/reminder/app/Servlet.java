@@ -144,6 +144,12 @@ public static final Logger logger = Logger
 
         logger.finer("baseUrl:" + baseUrl);
 
+        String body = getBody(req);
+        PrintWriter out = resp.getWriter();
+        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + baseUrl + "</h1>");
+        out.println("<h1>" + body + "</h1>");
+
 
         logger.finer("doGet(EXIT)");
     }
