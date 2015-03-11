@@ -73,7 +73,7 @@
                     </processTypes>
                 </configuration>
             </plugin>
-            <!--<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>2.4</version>
@@ -85,7 +85,7 @@
                     </execution>
                 </executions>
             </plugin>
--->
+
         </plugins>
     </build>
 
