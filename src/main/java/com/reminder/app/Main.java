@@ -30,7 +30,7 @@ public class Main
 
     public static void main( String[] args ) throws Exception {
 
-/*
+
         String webappDirLocation = "src/main/webapp/";
 
         String webPort = System.getenv("PORT");
@@ -58,7 +58,7 @@ public class Main
         server.setHandler(root);
 
         server.start();
-        server.join();*/
+        server.join();
 
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
         Call call = Call.create(toNumber, fromNumber);
