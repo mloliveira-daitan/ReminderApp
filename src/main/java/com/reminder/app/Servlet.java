@@ -22,7 +22,7 @@ public class Servlet extends HttpServlet{
         out.println("</html>");
     }*/
 public static final Logger logger = Logger
-        .getLogger(ReminderApp.class.getName());
+        .getLogger(Main.class.getName());
 
     private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
     private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;

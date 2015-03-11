@@ -69,7 +69,7 @@
                     <appName>sheltered-eyrie-4361</appName>
 
                     <processTypes>
-                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.reminder.app.ReminderApp</web>
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.reminder.app.Main</web>
                     </processTypes>
                 </configuration>
             </plugin>
