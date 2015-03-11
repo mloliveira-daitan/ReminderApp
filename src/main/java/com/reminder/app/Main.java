@@ -17,14 +17,14 @@ import java.util.Map;
 public class Main
 {
 
-    private static String userId = "u-u3i5n4q67rsx6pyonygisuy";
-    private static String apiToken =  "t-3wh3i5ygp3a2ar6mjjmxjfy" ;
-    private static String apiSecret = "yj2aruhgfrazr7bn2uaz5t5fugfjv22imprq3rq";
+    private static String userId = "u-m6vtffypexjt3k64ecumycy";
+    private static String apiToken =  "u-m6vtffypexjt3k64ecumycy" ;
+    private static String apiSecret = "u-m6vtffypexjt3k64ecumycy";
 
    // BandwidthClient.setInstance(userId, apiToken, apiSecret);
 
 
-    private static String toNumber = "+15302987472";// your phone number here
+    private static String toNumber = "+15302987471";// your phone number here
     private static String fromNumber = "+12093898531";// this is a number that is allocated on the AppPlatform. You can do this
     // via the dev console or with the SDK (see AllocateNumberExample)
 
@@ -59,7 +59,7 @@ public class Main
 
         server.start();
         server.join();
-
+/*
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
         Call call = Call.create(toNumber, fromNumber);
         Thread.sleep(6000);
@@ -86,11 +86,11 @@ public class Main
         System.out.println(BandwidthClient.getInstance().getBaseResourceUri(BandwidthConstants.GATHER_URI_PATH));
 
 
-        //RestResponse resp = BandwidthClient.getInstance().get(BandwidthConstants.GATHER_URI_PATH"Band/v1/users/{userId}/calls/{callId}/gather/{gatherId");
+        RestResponse resp = BandwidthClient.getInstance().get(BandwidthConstants.GATHER_URI_PATH"Band/v1/users/{userId}/calls/{callId}/gather/{gatherId");
 
 
         Thread.sleep(20000);
-        call.hangUp();
+        call.hangUp();*/
 
     }
 

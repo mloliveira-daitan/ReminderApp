@@ -1,4 +1,7 @@
 package com.reminder.app;
+import com.bandwidth.sdk.*;
+import com.bandwidth.sdk.model.Call;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -37,11 +40,16 @@ public class Servlet extends HttpServlet{
         out.println("<h1>" + message + "</h1>");
         out.println("<h1>" + request.getRequestURI() + "</h1>");
         out.println("<h1>" + request.getRequestURL() + "</h1>");
-
+        try {
+            Call call = Call.create("+18604195505", "+15302987471");
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
 
     }
 
-    
+
 
 
 
