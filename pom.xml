@@ -67,10 +67,10 @@
                 <version>0.1.9</version>
                 <configuration>
                     <appName>sheltered-eyrie-4361</appName>
-
+<!--
                     <processTypes>
-                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.reminder.app.Main</web>
-                    </processTypes>
+                      <!  <web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.reminder.app.Main</web>
+                    </processTypes>-->
                 </configuration>
             </plugin>
             <plugin>
