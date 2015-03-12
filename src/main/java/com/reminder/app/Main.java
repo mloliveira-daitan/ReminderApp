@@ -42,7 +42,7 @@ public class Main
         WebAppContext root = new WebAppContext();
 
         root.setContextPath("/");
-        root.setDescriptor(webappDirLocation + "/web.xml");
+        root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
         root.setResourceBase(webappDirLocation);
 
         // Parent loader priority is a class loader setting that Jetty accepts.
