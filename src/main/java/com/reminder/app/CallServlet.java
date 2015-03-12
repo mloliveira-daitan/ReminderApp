@@ -147,19 +147,7 @@ public static final Logger logger = Logger
 
             System.out.println(call.toString() + "\n"+"\n" + call.getCallbackUrl() + "\n");
 
-            Map<String, Object> gatherParams = new HashMap<String, Object>();
-            gatherParams.put("maxDigits", "5" );
 
-            Map<String, Object> promptParams = new HashMap<String, Object>();
-            String reminderSentence = "Hello! This is the appointment reminder app from Bandwidth." +
-                    " Your appointment is scheduled to Wednesday at 3 PM. . ." + "Please press 1 to end this call. " +
-                    "Press 2 to receive directions or press 3 to repeat this menu.";
-            promptParams.put("sentence", reminderSentence);
-            promptParams.put("voice", "kate");
-            promptParams.put("gender", "female");
-            promptParams.put("locale", "en_US");
-
-            call.createGather(gatherParams, promptParams);
         }
         catch (Exception e){
             System.out.println(e);

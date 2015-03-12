@@ -1,6 +1,7 @@
 package com.reminder.app;
 
 import com.bandwidth.sdk.BandwidthClient;
+import com.bandwidth.sdk.BandwidthConstants;
 import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
@@ -66,7 +67,21 @@ public static final Logger logger = Logger
             logger.finest(body);
             Event event = (Event) EventBase.createEventFromString(body);
 
-            System.out.println(event.getEventType().toString() + "++++");
+            String callId = event.getProperty("callId");
+            Call call = Call.get(callId);
+
+
+
+
+            if ( event.getEventType().equals("answer")){
+                sendGather(call);
+            }
+            else if(event.getEventType().equals("gather")){
+                System.out.println("GATHER");
+
+
+            }
+
 
             String callLeg = req.getParameter("callLeg");
             String requestUrl = req.getRequestURL().toString();
@@ -250,4 +265,25 @@ public static final Logger logger = Logger
         // do nothing.
     }
 
+
+    private void sendGather(Call call) {
+        Map<String, Object> gatherParams = new HashMap<String, Object>();
+        gatherParams.put("maxDigits", "5");
+
+        Map<String, Object> promptParams = new HashMap<String, Object>();
+        String reminderSentence = "Hello! This is the appointment reminder app from Bandwidth." +
+                " Your appointment is scheduled to Wednesday at 3 PM. . ." + "Please press 1 to end this call. " +
+                "Press 2 to receive directions or press 3 to repeat this menu.";
+        promptParams.put("sentence", reminderSentence);
+        promptParams.put("voice", "kate");
+        promptParams.put("gender", "female");
+        promptParams.put("locale", "en_US");
+
+        try {
+            call.createGather(gatherParams, promptParams);
+        }
+        catch (Exception e){
+            System.out.println("Excepetion: " + e.toString());
+        }
+    }
 }
