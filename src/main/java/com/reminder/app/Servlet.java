@@ -113,6 +113,14 @@ public static final Logger logger = Logger
             throws ServletException, IOException {
         logger.finer("doGet(ENTRY)");
 
+        String body = getBody(req);
+        try {
+            Event event = (Event) EventBase.createEventFromString(body);
+        }
+        catch (Exception e){
+            System.out.println("EVENT ERROR: " + e.toString());
+        }
+        
         String callLeg = req.getParameter("callLeg");
         String requestUrl = req.getRequestURL().toString();
         String requestUri = req.getRequestURI();
@@ -132,7 +140,7 @@ public static final Logger logger = Logger
 
         logger.finer("baseUrl:" + baseUrl);
 
-        String body = getBody(req);
+
         PrintWriter out = resp.getWriter();
         out.println("<h1>" + message + "</h1>");
         out.println("<h1>" + baseUrl + "</h1>");
