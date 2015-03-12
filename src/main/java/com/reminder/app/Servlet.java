@@ -73,11 +73,18 @@ public static final Logger logger = Logger
 
 
 
-            if ( event.getEventType().equals("answer")){
+            if ( event.getEventType().toString().equals("answer")){
+                System.out.println("SENDING GATHER");
+
                 sendGather(call);
             }
+            else if ( event.getEventType().equals("answer")){
+                System.out.println("SENDING GATHER TWO");
+
+//                sendGather(call);
+            }
             else if(event.getEventType().equals("gather")){
-                System.out.println("GATHER");
+                System.out.println("RECEIVING GATHER");
 
 
             }
