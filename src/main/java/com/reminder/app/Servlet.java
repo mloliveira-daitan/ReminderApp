@@ -102,6 +102,11 @@ public static final Logger logger = Logger
 
         }
 
+        String answered = req.getParameter("eventType");
+        String answered2 = req.getHeader("eventType");
+
+        System.out.println("EVENTTYPE: " + answered + "---" + answered2 + "\n");
+
         logger.finer("doPost(EXIT)");
     }
 
@@ -120,7 +125,7 @@ public static final Logger logger = Logger
         catch (Exception e){
             System.out.println("EVENT ERROR: " + e.toString());
         }
-        
+
         String callLeg = req.getParameter("callLeg");
         String requestUrl = req.getRequestURL().toString();
         String requestUri = req.getRequestURI();
