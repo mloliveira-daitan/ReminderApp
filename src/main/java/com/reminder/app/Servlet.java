@@ -78,14 +78,23 @@ public static final Logger logger = Logger
 
                 sendGather(call);
             }
-            else if ( event.getEventType().equals("answer")){
-                System.out.println("SENDING GATHER TWO");
-
-//                sendGather(call);
-            }
-            else if(event.getEventType().equals("gather")){
+            else if(event.getEventType().toString().equals("gather")){
                 System.out.println("RECEIVING GATHER");
+                String inputDigit = event.getProperty("digits");
 
+                if (inputDigit.equals("1")){
+                    call.hangUp();
+
+                }
+                else if (inputDigit.equals("2")){
+                    call.stopSentence();
+                    call.speakSentence("Your appointment is around the corner, at 3 PM");
+
+                }
+                else {
+                    call.stopSentence();
+                    sendGather(call);
+                }
 
             }
 
@@ -275,7 +284,7 @@ public static final Logger logger = Logger
 
     private void sendGather(Call call) {
         Map<String, Object> gatherParams = new HashMap<String, Object>();
-        gatherParams.put("maxDigits", "5");
+        gatherParams.put("maxDigits", "1");
 
         Map<String, Object> promptParams = new HashMap<String, Object>();
         String reminderSentence = "Hello! This is the appointment reminder app from Bandwidth." +
