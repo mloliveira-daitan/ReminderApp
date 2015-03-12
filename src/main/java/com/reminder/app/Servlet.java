@@ -88,7 +88,7 @@ public static final Logger logger = Logger
                 }
                 else if (inputDigit.equals("2")){
                     call.stopSentence();
-                    call.speakSentence("Your appointment is around the corner, at 3 PM");
+                    call.speakSentence("Your appointment location is around the corner, at 3 PM");
 
                 }
                 else {
@@ -96,6 +96,11 @@ public static final Logger logger = Logger
                     sendGather(call);
                 }
 
+            }
+            else if (event.getEventType().toString().equals("speak")){
+                if (event.getProperty("state").toString().equals("PLAYBACK_STOP") ){
+                    call.hangUp();
+                }
             }
 
 

@@ -1,3 +1,5 @@
+<%@page import="com.reminder.bean.NumbersBean"%>
+<% NumbersBean numbersBean=(NumbersBean)request.getAttribute("numbersBean"); %>
 <html lang="en"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,6 +52,9 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="well well-lg">
+
+				<%= numbersBean.getNumber() %>
+
           <form class="form-horizontal" action="start_call.html">
             <div class="form-group">
               <label class="col-sm-4 control-label">Phone Number to Call "from"</label>

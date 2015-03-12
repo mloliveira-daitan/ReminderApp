@@ -26,4 +26,13 @@
         <url-pattern>/call</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>com.reminder.controller.ListNumbersController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>
