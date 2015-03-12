@@ -142,7 +142,7 @@ public static final Logger logger = Logger
         out.println("<h1>" + body + "</h1>");
 
         try {
-            Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/servlet/", "testcall");
+            Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/servlet", "testcall");
             Thread.sleep(6000);
 
             System.out.println(call.toString() + "\n"+"\n" + call.getCallbackUrl() + "\n");

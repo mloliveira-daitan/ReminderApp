@@ -137,7 +137,8 @@ public static final Logger logger = Logger
         out.println("<h1>" + message + "</h1>");
         out.println("<h1>" + baseUrl + "</h1>");
         out.println("<h1>" + body + "</h1>");
-
+        displayHeaders(req);
+        displayParameters(req);
 
 
 
