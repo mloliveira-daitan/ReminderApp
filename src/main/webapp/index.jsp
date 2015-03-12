@@ -8,7 +8,7 @@
     <title>Bandwidth Sample App</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <style type="text/css">
