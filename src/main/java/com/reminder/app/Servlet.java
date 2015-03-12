@@ -66,6 +66,8 @@ public static final Logger logger = Logger
             logger.finest(body);
             Event event = (Event) EventBase.createEventFromString(body);
 
+            System.out.println(event.getEventType().toString() + "++++");
+
             String callLeg = req.getParameter("callLeg");
             String requestUrl = req.getRequestURL().toString();
             String requestUri = req.getRequestURI();
@@ -102,10 +104,6 @@ public static final Logger logger = Logger
 
         }
 
-        String answered = req.getParameter("eventType");
-        String answered2 = req.getHeader("eventType");
-
-        System.out.println("EVENTTYPE: " + answered + "---" + answered2 + "\n");
 
         logger.finer("doPost(EXIT)");
     }
