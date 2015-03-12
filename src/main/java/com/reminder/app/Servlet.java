@@ -140,6 +140,10 @@ public static final Logger logger = Logger
         displayHeaders(req);
         displayParameters(req);
 
+        String answered = req.getParameter("eventType");
+
+        System.out.println("EVENTTYPE: " + answered + "\n");
+
 
 
         logger.finer("doGet(EXIT)");
