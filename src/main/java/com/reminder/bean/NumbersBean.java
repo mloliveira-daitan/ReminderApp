@@ -1,13 +1,15 @@
 package com.reminder.bean;
 
-public class NumbersBean {
-    private String number;
+import java.util.List;
 
-    public String getNumber() {
-        return number;
+public class NumbersBean {
+    private List<String> numbers;
+
+    public List<String> getNumbers() {
+        return numbers;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNumbers(List<String> numbers) {
+        this.numbers = numbers;
     }
 }

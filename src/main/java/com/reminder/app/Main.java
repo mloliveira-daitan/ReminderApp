@@ -17,9 +17,16 @@ import java.util.Map;
 public class Main
 {
 
-    private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
+    /*private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
     private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;
     private static String apiSecret = "grkw7yze7dy4w7lpt2jdifnxhrhcmpjd7ft2xca";
+*/
+
+    private static String userId = "u-m6vtffypexjt3k64ecumycy";
+    private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
+    private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
+
+
 
    // BandwidthClient.setInstance(userId, apiToken, apiSecret);
 
@@ -28,8 +35,11 @@ public class Main
     private static String fromNumber = "+18604195505";// this is a number that is allocated on the AppPlatform. You can do this
 // via the dev console or with the SDK (see AllocateNumberExample)
 
+
     public static void main( String[] args ) throws Exception {
 
+        //BandwidthClient.getInstance().setEndpointandVersion("https://api.dev.catapult.inetwork.com", "v1");
+        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
         String webappDirLocation = "src/main/webapp/";
 

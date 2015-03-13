@@ -1,5 +1,8 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="com.reminder.bean.NumbersBean"%>
-<% NumbersBean numbersBean=(NumbersBean)request.getAttribute("numbersBean"); %>
+<% NumbersBean numbersBean=(NumbersBean)request.getAttribute("numbersBean");
+pageContext.setAttribute("numbers", numbersBean.getNumbers());
+%>
 <html lang="en"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <!-- Custom styles for this template -->
     <style type="text/css">
@@ -49,44 +53,46 @@
 		<p class="lead">Voice Appointment Reminders</p>
 		</div>
 
+
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="well well-lg">
-
-				<%= numbersBean.getNumber() %>
-
           <form class="form-horizontal" action="start_call.html">
             <div class="form-group">
               <label class="col-sm-4 control-label">Phone Number to Call "from"</label>
               <div class="col-sm-4">
                 <select class="form-control" name="fromPhoneNumber">
-                  <option value='.$number->number.'>List Numbers from Account</option>
+<c:forEach items="${numbers}" var="number">
+<option value='${number}'>${number}</option>
+</c:forEach>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-4 control-label">Phone Number to Call "to"</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="+15554443333">
+                <input type="text" class="form-control" id="toNumber" placeholder="+15554443333">
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-4 col-sm-9">
-                <button type="submit" class="btn btn-success btn-lg">Start Call</button>
+                <button type="submit" class="btn btn-success btn-lg" id='createCall'>Start Call</button>
               </div>
             </div>
           </form>
-				</div>		
+				</div>
 			</div>
 		</div>
 
     </div><!-- /.container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./bootstrap-3.1.1/js/bootstrap.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $( "#createCall" ).click(function() {
+              alert( "Handler for .click() called." );
+            });
+        });
+    </script>
 
 </body>
 </html>
