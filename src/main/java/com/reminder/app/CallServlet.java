@@ -143,8 +143,8 @@ public static final Logger logger = Logger
 
         logger.finer("baseUrl:" + baseUrl);
 
-        toNumber = req.getParameter("toNumber");
-        fromNumber = req.getParameter("fromNumber");
+        //toNumber = req.getParameter("toNumber");
+        //fromNumber = req.getParameter("fromNumber");
 
         PrintWriter out = resp.getWriter();
         out.println("<h1>" + message + " @GET </h1>");
