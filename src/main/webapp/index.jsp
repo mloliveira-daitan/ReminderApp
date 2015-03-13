@@ -61,7 +61,7 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
             <div class="form-group">
               <label class="col-sm-4 control-label">Phone Number to Call "from"</label>
               <div class="col-sm-4">
-                <select class="form-control" name="fromPhoneNumber">
+                <select class="form-control" name="fromNumber">
 <c:forEach items="${numbers}" var="number">
 <option value='${number}'>${number}</option>
 </c:forEach>
@@ -87,11 +87,31 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
     </div><!-- /.container -->
 
     <script>
+       /*function alertNumber() {
+        var n1 = document.getElementById("fromNumber").value;
+                       var n2 = document.getElementById("toNumber").value;
+                        alert(n1 + "-" + n2);
+                        alert("oi");
+        }
+
+         $( document ).ready(function() {
+            $( "#createCall" ).click(alertNumber());
+
+         });*/
+
+
         $( document ).ready(function() {
             $( "#createCall" ).click(function() {
-              alert( "Handler for .click() called." );
+                $.ajax({
+                  method: "GET",
+                  url: "localhost:8080/call",
+                  data: "toNumber=" + "+15302987471", "fromNumber" + "+18595682277",
+
+                });
             });
         });
+
+        //$( "#foo" )[ 0 ]
     </script>
 
 </body>
