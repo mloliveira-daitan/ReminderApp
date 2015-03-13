@@ -33,6 +33,6 @@
 
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/start</url-pattern>
     </servlet-mapping>
 </web-app>

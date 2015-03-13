@@ -30,9 +30,14 @@ public class Servlet extends HttpServlet{
 public static final Logger logger = Logger
         .getLogger(Main.class.getName());
 
-    private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
+   /* private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
     private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;
     private static String apiSecret = "grkw7yze7dy4w7lpt2jdifnxhrhcmpjd7ft2xca";
+*/
+
+    private static String userId = "u-m6vtffypexjt3k64ecumycy";
+    private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
+    private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
 
 // BandwidthClient.setInstance(userId, apiToken, apiSecret);
 
@@ -48,7 +53,7 @@ public static final Logger logger = Logger
 
     public void init() throws ServletException
     {
-        BandwidthClient.getInstance().setEndpointandVersion("https://api.dev.catapult.inetwork.com", "v1");
+        //BandwidthClient.getInstance().setEndpointandVersion("https://api.dev.catapult.inetwork.com", "v1");
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
         // Do required initialization
 
