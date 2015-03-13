@@ -30,10 +30,13 @@ public class CallServlet extends HttpServlet{
 public static final Logger logger = Logger
         .getLogger(Main.class.getName());
 /*
+    //TEST
     private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
     private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;
     private static String apiSecret = "grkw7yze7dy4w7lpt2jdifnxhrhcmpjd7ft2xca";
 */
+
+    //PROD
     private static String userId = "u-m6vtffypexjt3k64ecumycy";
     private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
     private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
@@ -140,6 +143,8 @@ public static final Logger logger = Logger
 
         logger.finer("baseUrl:" + baseUrl);
 
+        toNumber = req.getParameter("toNumber");
+        fromNumber = req.getParameter("fromNumber");
 
         PrintWriter out = resp.getWriter();
         out.println("<h1>" + message + " @GET </h1>");
