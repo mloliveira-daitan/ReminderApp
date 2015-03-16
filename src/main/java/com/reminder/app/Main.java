@@ -17,14 +17,14 @@ import java.util.Map;
 
 public class Main
 {
-    private static String userId = "u-m6vtffypexjt3k64ecumycy";
-    private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
-    private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
+    //private static String userId = "u-m6vtffypexjt3k64ecumycy";
+   // private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
+   // private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
 
     public static void main( String[] args ) throws Exception {
 
 
-        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
+       // BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
         String webappDirLocation = "src/main/webapp/";
 
