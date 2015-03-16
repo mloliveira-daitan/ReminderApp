@@ -1,5 +1,6 @@
 package com.reminder.controller;
 
+import com.bandwidth.sdk.BandwidthClient;
 import com.bandwidth.sdk.model.PhoneNumber;
 import com.bandwidth.sdk.model.ResourceList;
 import com.reminder.bean.NumbersBean;
@@ -16,9 +17,12 @@ import java.util.List;
 public class ListNumbersController extends HttpServlet {
 
 
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        BandwidthClient.getInstance();
 
         NumbersBean numbersBean = new NumbersBean();
         List<String> numberList = new ArrayList();
