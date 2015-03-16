@@ -31,12 +31,12 @@ public class CallController extends HttpServlet {
 
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
-        String callId = request.getParameter("callId");
+       // String callId = request.getParameter("callId");
 
         Call call = null;
         try {
             //call = Call.get(callId);
-            call = Call.get("c-2zbrn7xs3yapyl664lrktfy");
+            /*call = Call.get("c-2zbrn7xs3yapyl664lrktfy");
             callBean.setId(call.getId());
             callBean.setState(call.getState());
             callBean.setDirection(call.getDirection());
