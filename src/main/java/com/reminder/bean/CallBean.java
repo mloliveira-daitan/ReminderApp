@@ -1,6 +1,8 @@
 package com.reminder.bean;
 
-import oracle.jrockit.jfr.Recording;
+
+
+import com.bandwidth.sdk.model.Recording;
 
 import java.util.Date;
 import java.util.List;
