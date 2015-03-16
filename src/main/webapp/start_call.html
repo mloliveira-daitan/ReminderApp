@@ -65,25 +65,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./bootstrap-3.1.1/js/bootstrap.min.js"></script>
 
-    <script>
-        $( document ).ready(function() {
-            $( "#getCall" ).click(function() {
 
-                var callid = $_GET;
-                var e = document.getElementById("fromNumber");
-                var toNumber = document.getElementById("toNumber").value;
-                var fromNumber = e.options[e.selectedIndex].text;
-
-                var requestString = { "toNumber" : toNumber, "fromNumber": fromNumber};
-                alert(toNumber);
-                $.ajax({
-                  url: "/call",
-                  type: "POST",
-                  data: requestString
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
