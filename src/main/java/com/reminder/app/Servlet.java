@@ -64,9 +64,6 @@ public static final Logger logger = Logger
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         logger.finer("doPost(ENTRY)");
 
-        displayHeaders(req);
-        displayParameters(req);
-
         try {
             String body = getBody(req);
             logger.finest(body);
@@ -74,7 +71,6 @@ public static final Logger logger = Logger
 
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
-
 
 
 
@@ -117,24 +113,10 @@ public static final Logger logger = Logger
             String baseUrl = requestUrl.substring(0, requestUrl.length()
                     - requestUri.length()) + contextPath;
 
-            //logger.finer("requestUrl:" + requestUrl);
-            //logger.finer("requestUri:" + requestUri);
-            //logger.finer("contextPath:" + contextPath);
-            //logger.finer("callbackUrl:" + callbackUrl);
-            //logger.finer("baseUrl:" + baseUrl);
-
             String fromNumber = req.getParameter("fromNumber");
             event.setProperty("fromNumber", fromNumber);
             event.setProperty("callLeg", callLeg);
             event.setProperty("baseUrl", baseUrl);
-
-            logger.fine("adding event to queue");
-            //queue.add(event);
-            PrintWriter out = resp.getWriter();
-            out.println("<h1>" + message + "</h1>");
-            out.println("<h1>" + baseUrl + "</h1>");
-            out.println("<h1>" + body + "</h1>");
-            System.out.println("\n" + body +"\n");
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
@@ -158,44 +140,10 @@ public static final Logger logger = Logger
         logger.finer("doGet(ENTRY)");
 
         String body = getBody(req);
-        try {
-            Event event = (Event) EventBase.createEventFromString(body);
-        }
-        catch (Exception e){
-            System.out.println("EVENT ERROR: " + e.toString());
-        }
-
-        String callLeg = req.getParameter("callLeg");
-        String requestUrl = req.getRequestURL().toString();
-        String requestUri = req.getRequestURI();
-        String contextPath = req.getContextPath();
-
-        logger.finer("requestUrl:" + requestUrl);
-        logger.finer("requestUri:" + requestUri);
-        logger.finer("contextPath:" + contextPath);
-
-        String baseUrl = requestUrl.substring(0, requestUrl.length()
-                - requestUri.length());
-
-
-        callbackUrl = requestUrl + "?callLeg=outgoing"; // used for outgoing
-        // calls
-        logger.finer("callbackUrl:" + callbackUrl);
-
-        logger.finer("baseUrl:" + baseUrl);
-
-
-        PrintWriter out = resp.getWriter();
-        out.println("<h1>" + message + "</h1>");
-        out.println("<h1>" + baseUrl + "</h1>");
-        out.println("<h1>" + body + "</h1>");
-        displayHeaders(req);
-        displayParameters(req);
 
         String answered = req.getParameter("eventType");
 
-        System.out.println("EVENTTYPE: " + answered + "\n");
-
+        System.out.println("@GET EVENTTYPE: " + answered + "\n");
 
 
         logger.finer("doGet(EXIT)");
@@ -229,63 +177,6 @@ public static final Logger logger = Logger
         return sb.toString();
     }
 
-    /**
-     * Displays the request headers
-     *
-     * @param req
-     */
-    protected void displayHeaders(HttpServletRequest req) {
-        logger.finest("displayHeaders(ENTRY)");
-
-        Enumeration names = req.getHeaderNames();
-
-        while (names.hasMoreElements()) {
-            String name = (String) names.nextElement();
-            StringBuffer buf = new StringBuffer(name + ":");
-
-            Enumeration headers = req.getHeaders(name);
-
-            while (headers.hasMoreElements()) {
-                String header = (String) headers.nextElement();
-
-                buf.append(header + ",");
-            }
-            logger.finest(buf.toString());
-        }
-
-        logger.finest("displayHeaders(EXIT)");
-    }
-
-    /**
-     * Displays the parameters from the request
-     *
-     * @param req
-     */
-    protected void displayParameters(HttpServletRequest req) {
-        logger.finest("displayParameters(ENTRY)");
-
-        Enumeration keys = req.getParameterNames();
-
-        while (keys.hasMoreElements()) {
-            String key = (String) keys.nextElement();
-
-            // To retrieve a single value
-            String value = req.getParameter(key);
-            logger.finer(key + ":" + value);
-
-            // If the same key has multiple values (check boxes)
-            String[] valueArray = req.getParameterValues(key);
-
-            for (int i = 0; i > valueArray.length; i++) {
-                logger.finest("VALUE ARRAY" + valueArray[i]);
-            }
-
-        }
-
-        logger.finest("displayParameters(EXIT)");
-    }
-
-
     public void destroy()
     {
         // do nothing.
@@ -309,7 +200,7 @@ public static final Logger logger = Logger
             call.createGather(gatherParams, promptParams);
         }
         catch (Exception e){
-            System.out.println("Excepetion: " + e.toString());
+            System.out.println("Exception: " + e.toString());
         }
     }
 }
