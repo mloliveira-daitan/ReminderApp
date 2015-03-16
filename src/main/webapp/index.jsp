@@ -96,7 +96,7 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
                 var fromNumber = e.options[e.selectedIndex].text;
 
                 var requestString = { "toNumber" : toNumber, "fromNumber": fromNumber};
-
+                alert(toNumber);
                 $.ajax({
                   url: "/call",
                   type: "POST",
