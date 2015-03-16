@@ -35,4 +35,14 @@
         <servlet-name>Index</servlet-name>
         <url-pattern>/start</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CallId</servlet-name>
+        <servlet-class>com.reminder.controller.CallController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CallId</servlet-name>
+        <url-pattern>/callid</url-pattern>
+    </servlet-mapping>
 </web-app>
