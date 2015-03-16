@@ -57,7 +57,7 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="well well-lg">
-          <form class="form-horizontal" action="start_call.html">
+          <form class="form-horizontal" action="start_call.html" id="form-call">
             <div class="form-group">
               <label class="col-sm-4 control-label">Phone Number to Call "from"</label>
               <div class="col-sm-4">
@@ -76,9 +76,10 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
             </div>
             <div class="form-group">
               <div class="col-sm-offset-4 col-sm-9">
-                <button type="submit" class="btn btn-success btn-lg" id='createCall'>Start Call</button>
+                <button type="button" class="btn btn-success btn-lg" id='createCall'>Start Call</button>
               </div>
             </div>
+            <!--input type="hidden" name="callid" id="callid" value="" /-->
           </form>
 				</div>
 			</div>
@@ -89,8 +90,6 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
     <script>
         $( document ).ready(function() {
             $( "#createCall" ).click(function() {
-
-
                 var e = document.getElementById("fromNumber");
                 var toNumber = document.getElementById("toNumber").value;
                 var fromNumber = e.options[e.selectedIndex].text;
@@ -99,7 +98,11 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
                 $.ajax({
                   url: "/call",
                   type: "POST",
-                  data: requestString
+                  data: requestString,
+                  success: function(data){
+                      //$("#callid").val(data);
+                     // $("#form-call").submit();
+                  }
                 });
             });
         });

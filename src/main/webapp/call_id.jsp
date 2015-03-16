@@ -50,7 +50,7 @@ pageContext.setAttribute("call", callBean.getBean());
 		<div class="starter-template">
 		<h1>Bandwidth Sample App</h1>
 		<p class="lead">Voice Appointment Reminders</p>
-		<a href="./" class="btn btn-lg btn-success">Start A New Call</a>
+		<a href="./start" class="btn btn-lg btn-success">Start A New Call</a>
 		</div>
 
 
