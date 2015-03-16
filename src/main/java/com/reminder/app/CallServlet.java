@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.ParseException;
 import java.util.Enumeration;
@@ -73,6 +74,8 @@ public static final Logger logger = Logger
             }
 
             Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/servlet", "testcall");
+            HttpSession session = req.getSession();
+            session.setAttribute("callid", call.getId());
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
