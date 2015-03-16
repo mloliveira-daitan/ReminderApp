@@ -5,7 +5,6 @@ import com.bandwidth.sdk.BandwidthConstants;
 import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
-import com.reminder.bean.CallBean;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,17 +16,6 @@ import java.util.logging.Logger;
 
 
 public class Servlet extends HttpServlet{
-/*
-    protected void service (HttpServletRequest request,
-                            HttpServletResponse response)
-            throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<body>");
-        out.println("SERVLET");
-        out.println("</body>");
-        out.println("</html>");
-    }*/
 public static final Logger logger = Logger
         .getLogger(Main.class.getName());
 
@@ -73,8 +61,6 @@ public static final Logger logger = Logger
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
 
-
-
             if ( event.getEventType().toString().equals("answer")){
                 System.out.println("SENDING GATHER");
 
@@ -106,28 +92,6 @@ public static final Logger logger = Logger
             }
 
 
-            CallBean callBean = new CallBean();
-            callBean.setId(call.getId());
-            callBean.setState(call.getState());
-            callBean.setDirection(call.getDirection());
-            callBean.setTo(call.getTo());
-            callBean.setFrom(call.getFrom());
-            callBean.setStartTime(call.getStartTime());
-            callBean.setActiveTime(call.getActiveTime());
-            callBean.setEndTime(call.getEndTime());
-            callBean.setChargeableDuration(call.getChargeableDuration());
-            callBean.setCallbackUrl(call.getCallbackUrl());
-        /*callBean.setTranscriptionsEnabled(call.getTranscriptionsEnabled());
-        callBean.setTranscriptions(call.getTranscriptions());
-        callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
-            // callBean.setRecordings(call.getRecordings());
-            callBean.setEvents(call.getEvents());
-
-            req.setAttribute("callBean", callBean);
-
-            RequestDispatcher rd=req.getRequestDispatcher("call_id.jsp");
-            rd.forward(req, resp);
-            /*
             String callLeg = req.getParameter("callLeg");
             String requestUrl = req.getRequestURL().toString();
             String requestUri = req.getRequestURI();
@@ -139,7 +103,7 @@ public static final Logger logger = Logger
             String fromNumber = req.getParameter("fromNumber");
             event.setProperty("fromNumber", fromNumber);
             event.setProperty("callLeg", callLeg);
-            event.setProperty("baseUrl", baseUrl);*/
+            event.setProperty("baseUrl", baseUrl);
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
