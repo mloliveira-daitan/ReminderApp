@@ -72,7 +72,7 @@ public static final Logger logger = Logger
                 }
             }
 
-            //Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/servlet", "testcall");
+            Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/servlet", "testcall");
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
