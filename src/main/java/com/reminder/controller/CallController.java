@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CallController extends HttpServlet {
 
@@ -23,10 +21,6 @@ public class CallController extends HttpServlet {
     private static String userId = "u-m6vtffypexjt3k64ecumycy";
     private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
     private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
-
-
-    String strNumbers = "";
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,9 +31,12 @@ public class CallController extends HttpServlet {
 
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
+        String callId = request.getParameter("callId");
+
         Call call = null;
         try {
-            call = Call.get("c-2zbrn7xs3yapyl664lrktfy");
+            //call = Call.get(callId);
+           /* call = Call.get("c-2zbrn7xs3yapyl664lrktfy");
             callBean.setId(call.getId());
             callBean.setState(call.getState());
             callBean.setDirection(call.getDirection());
@@ -54,13 +51,10 @@ public class CallController extends HttpServlet {
         callBean.setTranscriptions(call.getTranscriptions());
         callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
             // callBean.setRecordings(call.getRecordings());
-            callBean.setEvents(call.getEvents());
+           // callBean.setEvents(call.getEvents());
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
 
         request.setAttribute("callBean", callBean);
 
