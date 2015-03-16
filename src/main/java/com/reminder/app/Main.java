@@ -69,39 +69,6 @@ public class Main
 
         server.start();
         server.join();
-     /* BandwidthClient.getInstance().setEndpointandVersion("https://api.dev.catapult.inetwork.com", "v1");
-        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
-
-        Call call = Call.create(toNumber, fromNumber);
-        Thread.sleep(6000);
-
-        System.out.println(call.toString() + "\n"+"\n" + call.getCallbackUrl() + "\n");
-
-        Map<String, Object> gatherParams = new HashMap<String, Object>();
-        gatherParams.put("maxDigits", "5" );
-
-        Map<String, Object> promptParams = new HashMap<String, Object>();
-        String reminderSentence = "Hello! This is the appointment reminder app from Bandwidth." +
-                " Your appointment is scheduled to Wednesday at 3 PM. . ." + "Please press 1 to end this call. " +
-                "Press 2 to receive directions or press 3 to repeat this menu.";
-        promptParams.put("sentence", reminderSentence);
-        promptParams.put("voice", "kate");
-        promptParams.put("gender", "female");
-        promptParams.put("locale", "en_US");
-
-        call.createGather(gatherParams, promptParams);
-
-        System.out.println(call.getEvents() +"\n\n");
-        System.out.println(call.toString());
-
-        System.out.println(BandwidthClient.getInstance().getBaseResourceUri(BandwidthConstants.GATHER_URI_PATH));
-
-
-        //RestResponse resp = BandwidthClient.getInstance().get(BandwidthConstants.GATHER_URI_PATH"Band/v1/users/{userId}/calls/{callId}/gather/{gatherId");
-
-
-        Thread.sleep(20000);
-        call.hangUp();*/
 
     }
 

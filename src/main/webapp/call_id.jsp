@@ -1,3 +1,8 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="com.reminder.bean.CallBean"%>
+<% CallBean callBean=(CallBean)request.getAttribute("callBean");
+pageContext.setAttribute("call", callBean.getBean());
+%>
 <html lang="en"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,6 +53,7 @@
 		<a href="./" class="btn btn-lg btn-success">Start A New Call</a>
 		</div>
 
+
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 
@@ -55,7 +61,21 @@
 					<h4>Call Details</h4>
 					<table class="table table-bordered">
 						<!-- DETECT IF THIS IS A FORM SUBMISSION AND DISPLAY NOTICE CALL IS STARTING-->
-						<tbody><tr><td>id:</td><td>c-n6e5jzk2ehlosrtn45kwjfi</td></tr><tr><td>state:</td><td>completed</td></tr><tr><td>direction:</td><td>out</td></tr><tr><td>to:</td><td>+15032223333</td></tr><tr><td>from:</td><td>+15412154111</td></tr><tr><td>startTime:</td><td>2015-02-28T17:58:41Z</td></tr><tr><td>activeTime:</td><td>2015-02-28T17:58:49Z</td></tr><tr><td>endTime:</td><td>2015-02-28T17:58:51Z</td></tr><tr><td>chargeableDuration:</td><td>60</td></tr><tr><td>callbackUrl:</td><td>https://localhost</td></tr><tr><td>transcriptionEnabled:</td><td>false</td></tr><tr><td>transcriptions:</td><td>https://api.catapult.inetwork.com/v1/users/u-alskdfjasdkalsdfj/calls/c-n6e5jzk2ehlosrtn45kwjfi/transcriptions</td></tr><tr><td>recordingEnabled:</td><td>false</td></tr><tr><td>recordings:</td><td>https://api.catapult.inetwork.com/v1/users/u-alskdfjasdkalsdfj/calls/c-n6e5jzk2ehlosrtn45kwjfi/recordings</td></tr><tr><td>events:</td><td>https://api.catapult.inetwork.com/v1/users/u-alskdfjasdkalsdfj/calls/c-n6e5jzk2ehlosrtn45kwjfi/events</td></tr>					
+						<tbody><tr><td>id:</td><td>${call.id}</td></tr>
+						       <tr><td>state:</td><td>${call.state}</td></tr>
+						       <tr><td>direction:</td><td>${call.direction}</td></tr>
+						       <tr><td>to:</td><td>${call.to}</td></tr>
+						       <tr><td>from:</td><td>${call.from}</td></tr>
+						       <tr><td>startTime:</td><td>${call.startTime}</td></tr>
+						       <tr><td>activeTime:</td><td>${call.activeTime}</td></tr>
+						       <tr><td>endTime:</td><td>${call.endTime}</td></tr>
+						       <tr><td>chargeableDuration:</td><td>${call.chargeableDuration}</td></tr>
+						       <tr><td>callbackUrl:</td><td>${call.callbackUrl}</td></tr>
+						       <tr><td>transcriptionEnabled:</td><td>${call.transcriptionEnabled}</td></tr>
+						       <tr><td>transcriptions:</td><td>${call.transcriptions}</td></tr>
+						       <tr><td>recordingEnabled:</td><td>${call.recordingEnabled}</td></tr>
+						       <tr><td>recordings:</td><td>${call.recordings}</td></tr>
+						       <tr><td>events:</td><td>${call.events}</td></tr>
 					</tbody></table>
 				</div>		
 			</div>
