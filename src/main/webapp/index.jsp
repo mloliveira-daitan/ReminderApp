@@ -101,7 +101,7 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
                   data: requestString,
                   success: function(data){
                       //$("#callid").val(data);
-                     // $("#form-call").submit();
+                      $("#form-call").submit();
                   }
                 });
             });

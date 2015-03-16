@@ -19,26 +19,22 @@ import java.io.IOException;
 public class CallController extends HttpServlet {
 
 
-    private static String userId = "u-m6vtffypexjt3k64ecumycy";
-    private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
-    private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
+//    private static String userId = "u-m6vtffypexjt3k64ecumycy";
+//    private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
+//    private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //BandwidthClient.getInstance().setEndpointandVersion("https://api.dev.catapult.inetwork.com", "v1");
-        //System.out.println(strNumbers);
         CallBean callBean = new CallBean();
 
-        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
+//        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
-       // String callId = request.getParameter("callId");
         HttpSession session = request.getSession();
         String callId = (String) session.getAttribute("callid");
 
         try {
             Call call = Call.get(callId);
-            //call = Call.get("c-2zbrn7xs3yapyl664lrktfy");
             callBean.setId(call.getId());
             callBean.setState(call.getState());
             callBean.setDirection(call.getDirection());
@@ -49,10 +45,10 @@ public class CallController extends HttpServlet {
             callBean.setEndTime(call.getEndTime());
             callBean.setChargeableDuration(call.getChargeableDuration());
             callBean.setCallbackUrl(call.getCallbackUrl());
-        /*callBean.setTranscriptionsEnabled(call.getTranscriptionsEnabled());
-        callBean.setTranscriptions(call.getTranscriptions());
-        callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
-            // callBean.setRecordings(call.getRecordings());
+            /*callBean.setTranscriptionsEnabled(call.getTranscriptionsEnabled());
+            callBean.setTranscriptions(call.getTranscriptions());
+            callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
+            callBean.setRecordings(call.getRecordings());
             callBean.setEvents(call.getEvents());
         } catch (Exception e) {
             e.printStackTrace();
