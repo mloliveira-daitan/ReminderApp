@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CallBean {
 
-    private String id = "callTest";
+    private String id;
     private String state;
     private String direction;
     private String to;
