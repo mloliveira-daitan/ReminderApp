@@ -24,8 +24,6 @@ public class CallController extends HttpServlet {
             throws ServletException, IOException {
         CallBean callBean = new CallBean();
 
-//        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
-
         HttpSession session = request.getSession();
         String callId = (String) session.getAttribute("callid");
 
