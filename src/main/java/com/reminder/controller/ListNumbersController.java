@@ -5,6 +5,7 @@ import com.bandwidth.sdk.BandwidthConstants;
 import com.bandwidth.sdk.model.PhoneNumber;
 import com.bandwidth.sdk.model.ResourceList;
 import com.reminder.bean.NumbersBean;
+import org.apache.http.util.EntityUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,24 +20,9 @@ import java.util.Map;
 
 public class ListNumbersController extends HttpServlet {
 
-    /**
-     *
-     *
-     *
-     *
-     */
-    private String requestUrl = BandwidthConstants.BANDWIDTH_API_ENDPOINT+BandwidthConstants.API_VERSION;
-/*
-    private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
-    private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;
-    private static String apiSecret = "grkw7yze7dy4w7lpt2jdifnxhrhcmpjd7ft2xca";
-*/
     private static String userId = "u-m6vtffypexjt3k64ecumycy";
     private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
     private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
-
-
-    String strNumbers = "";
 
 
     @Override
