@@ -150,7 +150,7 @@ public static final Logger logger = Logger
 
         String answered = req.getParameter("eventType");
 
-        System.out.println("@GET +" + body + "EVENTTYPE: " + answered + "\n");
+        System.out.println("@GET +" + req.toString() +" <> " + body + "EVENTTYPE: " + answered + "\n");
         CallBean callBean = new CallBean();
         Event event = null;
         try {
