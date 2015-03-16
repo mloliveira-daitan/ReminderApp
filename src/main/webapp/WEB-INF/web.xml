@@ -19,7 +19,7 @@
 
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
-        <url-pattern>/servlet</url-pattern>
+        <url-pattern>/callid</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -42,7 +42,7 @@
         <url-pattern>/start</url-pattern>
     </servlet-mapping>
 
-    <servlet>
+    <!--<servlet>
         <servlet-name>CallId</servlet-name>
         <servlet-class>com.reminder.controller.CallController</servlet-class>
     </servlet>
@@ -50,5 +50,5 @@
     <servlet-mapping>
         <servlet-name>CallId</servlet-name>
         <url-pattern>/callid</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> -->
 </web-app>

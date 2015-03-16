@@ -61,7 +61,7 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
             <div class="form-group">
               <label class="col-sm-4 control-label">Phone Number to Call "from"</label>
               <div class="col-sm-4">
-                <select class="form-control" id="fromNumber" name="fromPhoneNumber">
+                <select class="form-control" id="fromNumber">
 <c:forEach items="${numbers}" var="number">
 <option value='${number}'>${number}</option>
 </c:forEach>
