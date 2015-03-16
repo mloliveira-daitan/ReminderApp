@@ -1,17 +1,11 @@
 package com.reminder.app;
 
-import com.bandwidth.sdk.AppPlatformException;
-import com.bandwidth.sdk.BandwidthClient;
-import com.bandwidth.sdk.BandwidthConstants;
 import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
-import com.reminder.bean.CallBean;
 
-import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -20,37 +14,6 @@ import java.util.logging.Logger;
 public class Servlet extends HttpServlet{
 public static final Logger logger = Logger
         .getLogger(Main.class.getName());
-
-   /* private static String userId = "u-jbg4qvzfcs6hpnq2mah7ona";
-    private static String apiToken =  "t-4iozqelr2fdj7amxjgz2o3y" ;
-    private static String apiSecret = "grkw7yze7dy4w7lpt2jdifnxhrhcmpjd7ft2xca";
-*/
-
-   // private static String userId = "u-m6vtffypexjt3k64ecumycy";
-    //private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
-   // private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
-
-// BandwidthClient.setInstance(userId, apiToken, apiSecret);
-
-
-    private static String toNumber = "+15302987471";// your phone number here
-    private static String fromNumber = "+18595682277";// this is a number that is allocated on the AppPlatform. You can do this
-// via the dev console or with the SDK (see AllocateNumberExample)
-
-    //BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
-    //Call call = Call.create(toNumber, fromNumber);
-    private String message;
-    private String callbackUrl;
-
-    public void init() throws ServletException
-    {
-        //BandwidthClient.getInstance().setEndpointandVersion("https://api.dev.catapult.inetwork.com", "v1");
-        //BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
-        // Do required initialization
-
-       // message = "Hello World";
-    }
-
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         logger.finer("doPost(ENTRY)");
@@ -79,33 +42,17 @@ public static final Logger logger = Logger
                 else if (inputDigit.equals("2")){
                     call.stopSentence();
                     call.speakSentence("Your appointment location is around the corner, at 3 PM");
-
                 }
                 else {
                     call.stopSentence();
                     sendGather(call);
                 }
-
             }
             else if (event.getEventType().toString().equals("speak")){
                 if (event.getProperty("state").toString().equals("PLAYBACK_STOP") ){
                     call.hangUp();
                 }
             }
-
-
-            String callLeg = req.getParameter("callLeg");
-            String requestUrl = req.getRequestURL().toString();
-            String requestUri = req.getRequestURI();
-            String contextPath = req.getContextPath();
-            callbackUrl = requestUrl + "?callLeg=outgoing"; // used for outgoing
-            String baseUrl = requestUrl.substring(0, requestUrl.length()
-                    - requestUri.length()) + contextPath;
-
-            String fromNumber = req.getParameter("fromNumber");
-            event.setProperty("fromNumber", fromNumber);
-            event.setProperty("callLeg", callLeg);
-            event.setProperty("baseUrl", baseUrl);
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
@@ -120,25 +67,6 @@ public static final Logger logger = Logger
         logger.finer("doPost(EXIT)");
     }
 
-    /**
-     *
-     */
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        logger.finer("doGet(ENTRY)");
-
-        String body = getBody(req);
-
-        String answered = req.getParameter("eventType");
-
-        System.out.println("@GET +" + req.toString() +" <> " + body + "EVENTTYPE: " + answered + "\n");
-
-
-        logger.finer("doGet(EXIT)");
-    }
-
-
     protected String getBody(HttpServletRequest req) {
         logger.finest("getBody(ENTRY)");
 
@@ -152,7 +80,6 @@ public static final Logger logger = Logger
             String read = br.readLine();
 
             while (read != null) {
-
                 // System.out.println(read);
                 sb.append(read);
                 read = br.readLine();

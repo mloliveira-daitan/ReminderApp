@@ -1,22 +1,12 @@
 package com.reminder.app;
 
-import com.bandwidth.sdk.BandwidthClient;
 import com.bandwidth.sdk.model.Call;
-import com.bandwidth.sdk.model.events.Event;
-import com.bandwidth.sdk.model.events.EventBase;
-import com.google.gson.Gson;
-import org.json.simple.JSONObject;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.text.ParseException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
 
@@ -36,7 +26,6 @@ public static final Logger logger = Logger
             String parsedBody = body.replaceAll("%2B", "+");
 
             logger.finest(body);
-
 
             String delims = "[=&]+";
             String[] tokens = parsedBody.split(delims);
