@@ -5,6 +5,7 @@ import com.bandwidth.sdk.BandwidthConstants;
 import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
+import com.reminder.bean.CallBean;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -105,6 +106,28 @@ public static final Logger logger = Logger
             }
 
 
+            CallBean callBean = new CallBean();
+            callBean.setId(call.getId());
+            callBean.setState(call.getState());
+            callBean.setDirection(call.getDirection());
+            callBean.setTo(call.getTo());
+            callBean.setFrom(call.getFrom());
+            callBean.setStartTime(call.getStartTime());
+            callBean.setActiveTime(call.getActiveTime());
+            callBean.setEndTime(call.getEndTime());
+            callBean.setChargeableDuration(call.getChargeableDuration());
+            callBean.setCallbackUrl(call.getCallbackUrl());
+        /*callBean.setTranscriptionsEnabled(call.getTranscriptionsEnabled());
+        callBean.setTranscriptions(call.getTranscriptions());
+        callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
+            // callBean.setRecordings(call.getRecordings());
+            callBean.setEvents(call.getEvents());
+
+            req.setAttribute("callBean", callBean);
+
+            RequestDispatcher rd=req.getRequestDispatcher("call_id.jsp");
+            rd.forward(req, resp);
+            /*
             String callLeg = req.getParameter("callLeg");
             String requestUrl = req.getRequestURL().toString();
             String requestUri = req.getRequestURI();
@@ -116,7 +139,7 @@ public static final Logger logger = Logger
             String fromNumber = req.getParameter("fromNumber");
             event.setProperty("fromNumber", fromNumber);
             event.setProperty("callLeg", callLeg);
-            event.setProperty("baseUrl", baseUrl);
+            event.setProperty("baseUrl", baseUrl);*/
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
