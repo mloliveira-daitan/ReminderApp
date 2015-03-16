@@ -172,12 +172,15 @@ public static final Logger logger = Logger
 
             RequestDispatcher rd=req.getRequestDispatcher("call_id.jsp");
             rd.forward(req, resp);
+            
+            resp.setStatus(HttpServletResponse.SC_OK);
 
         } catch (AppPlatformException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
 
 
