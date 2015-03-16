@@ -21,10 +21,6 @@ public class Main
     private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
     private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
 
-
-
-
-
     public static void main( String[] args ) throws Exception {
 
 
