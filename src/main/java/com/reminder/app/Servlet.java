@@ -93,24 +93,6 @@ public static final Logger logger = Logger
                 }
             }
 
-            CallBean callBean = new CallBean();
-
-            callBean.setId(call.getId());
-            callBean.setState(call.getState());
-            callBean.setDirection(call.getDirection());
-            callBean.setTo(call.getTo());
-            callBean.setFrom(call.getFrom());
-            callBean.setStartTime(call.getStartTime());
-            callBean.setActiveTime(call.getActiveTime());
-            callBean.setEndTime(call.getEndTime());
-            callBean.setChargeableDuration(call.getChargeableDuration());
-            callBean.setCallbackUrl(call.getCallbackUrl());
-
-
-            req.setAttribute("callBean", callBean);
-
-            RequestDispatcher rd=req.getRequestDispatcher("call_id.jsp");
-            rd.forward(req, resp);
 
             String callLeg = req.getParameter("callLeg");
             String requestUrl = req.getRequestURL().toString();
@@ -151,37 +133,6 @@ public static final Logger logger = Logger
         String answered = req.getParameter("eventType");
 
         System.out.println("@GET +" + req.toString() +" <> " + body + "EVENTTYPE: " + answered + "\n");
-        CallBean callBean = new CallBean();
-        Event event = null;
-        try {
-            event = (Event) EventBase.createEventFromString(body);
-            String callId = event.getProperty("callId");
-            Call call = Call.get(callId);
-            callBean.setId(call.getId());
-            callBean.setState(call.getState());
-            callBean.setDirection(call.getDirection());
-            callBean.setTo(call.getTo());
-            callBean.setFrom(call.getFrom());
-            callBean.setStartTime(call.getStartTime());
-            callBean.setActiveTime(call.getActiveTime());
-            callBean.setEndTime(call.getEndTime());
-            callBean.setChargeableDuration(call.getChargeableDuration());
-            callBean.setCallbackUrl(call.getCallbackUrl());
-
-            req.setAttribute("callBean", callBean);
-
-            RequestDispatcher rd=req.getRequestDispatcher("call_id.jsp");
-            rd.forward(req, resp);
-            
-            resp.setStatus(HttpServletResponse.SC_OK);
-
-        } catch (AppPlatformException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
 
 
         logger.finer("doGet(EXIT)");

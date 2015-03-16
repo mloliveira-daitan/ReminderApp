@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class CallController extends HttpServlet {
@@ -32,11 +33,12 @@ public class CallController extends HttpServlet {
         BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
        // String callId = request.getParameter("callId");
+        HttpSession session = request.getSession();
+        String callId = (String) session.getAttribute("callid");
 
-        Call call = null;
         try {
-            //call = Call.get(callId);
-            /*call = Call.get("c-2zbrn7xs3yapyl664lrktfy");
+            Call call = Call.get(callId);
+            //call = Call.get("c-2zbrn7xs3yapyl664lrktfy");
             callBean.setId(call.getId());
             callBean.setState(call.getState());
             callBean.setDirection(call.getDirection());
@@ -51,7 +53,7 @@ public class CallController extends HttpServlet {
         callBean.setTranscriptions(call.getTranscriptions());
         callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
             // callBean.setRecordings(call.getRecordings());
-           // callBean.setEvents(call.getEvents());
+            callBean.setEvents(call.getEvents());
         } catch (Exception e) {
             e.printStackTrace();
         }
