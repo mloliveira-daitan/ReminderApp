@@ -1,7 +1,4 @@
 package com.reminder.bean;
-
-
-
 import com.bandwidth.sdk.model.Recording;
 
 import java.util.Date;
