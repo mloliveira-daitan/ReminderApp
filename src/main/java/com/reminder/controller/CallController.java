@@ -19,10 +19,6 @@ import java.io.IOException;
 public class CallController extends HttpServlet {
 
 
-//    private static String userId = "u-m6vtffypexjt3k64ecumycy";
-//    private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
-//    private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
