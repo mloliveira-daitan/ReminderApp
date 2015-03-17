@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 
-public class Servlet extends HttpServlet {
+public class CallbackServlet extends HttpServlet {
     public static final Logger logger = Logger
             .getLogger(Main.class.getName());
 

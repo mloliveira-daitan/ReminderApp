@@ -5,13 +5,13 @@
          version="2.5">
 
     <servlet>
-        <servlet-name>Servlet</servlet-name>
-        <servlet-class>com.reminder.app.Servlet</servlet-class>
+        <servlet-name>CallbackServlet</servlet-name>
+        <servlet-class>com.reminder.app.CallbackServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/servlet</url-pattern>
+        <servlet-name>CallbackServlet</servlet-name>
+        <url-pattern>/callback</url-pattern>
     </servlet-mapping>
 
     <servlet>
