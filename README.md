@@ -26,8 +26,7 @@ The steps to deploy the example app to Heroku are:
 
 Step 1 - Set up the git repo
 
-From the ReminderApp directory
-
+	cd ReminderApp
 	git init
 
 Step 2 - Create a new Heroku app
