@@ -43,7 +43,7 @@
         <servlet-name>CallId</servlet-name>
         <url-pattern>/callid</url-pattern>
     </servlet-mapping>
-
+<!--
     <servlet>
         <servlet-name>Welcome</servlet-name>
         <servlet-class>com.reminder.app.WelcomeServlet</servlet-class>
@@ -52,7 +52,7 @@
     <servlet-mapping>
         <servlet-name>Welcome</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
     <welcome-file-list>
         <welcome-file>
