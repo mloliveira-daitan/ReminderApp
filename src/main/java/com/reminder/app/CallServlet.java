@@ -15,6 +15,7 @@ public class CallServlet extends HttpServlet{
 
     private static String toNumber;
     private static String fromNumber;
+    private static String callbackUrl = System.getenv("HEROKU_APP_NAME").concat("/callback");
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
@@ -34,7 +35,7 @@ public class CallServlet extends HttpServlet{
                 }
             }
 //TBD PARAMETER
-            Call call = Call.create(toNumber, fromNumber, System.getenv("HEROKU_APP_NAME"), "testcall");
+            Call call = Call.create(toNumber, fromNumber, callbackUrl, "testcall");
             HttpSession session = req.getSession();
             session.setAttribute("callid", call.getId());
 
