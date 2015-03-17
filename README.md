@@ -33,29 +33,32 @@ Step 2 - Create a new Heroku app
 
 	heroku apps:create
 
-		Creating infinite-springs-9079... done, stack is cedar-14
+The following output will be showed in the console:
+
+		Creating <strong>infinite-springs-9079</strong>... done, stack is cedar-14
     	https://infinite-springs-9079.herokuapp.com/ | git@heroku.com:infinite-springs-9079.git
     	Git remote heroku added
 
-Your Heroku app name is infinite-springs-9079.
+Your Heroku app name is <strong>infinite-springs-9079</strong>.
 
 Step 3 - Configure the new Heroku app with your App Platform credentials and Heroku app name
 
-	heroku config:set BANDWIDTH_USER_ID='your user id from the app platform' --app <heroku app name>
-	heroku config:set BANDWIDTH_API_TOKEN='your api token from the app platform' --app <heroku app name>
-	heroku config:set BANDWIDTH_API_SECRET='your api secret from the app platform' --app <heroku app name>
-	heroku config:set HEROKU_APP_NAME='<your heroku app name here>' --app <heroku app name>
+Log into the Bandwidth Platform UI, go to "Account" tab and obtain your credentials. Then run the following commands:
 
-Note that your Bandwidth user id, api token and api secret are obtained by logging into the app platform UI and going to the Account tab.
+	heroku config:set BANDWIDTH_USER_ID='your user id from Bandwidth Platform' --app <heroku app name>
+	heroku config:set BANDWIDTH_API_TOKEN='your api token from Bandwidth Platform' --app <heroku app name>
+	heroku config:set BANDWIDTH_API_SECRET='your api secret from Bandwidth Platform' --app <heroku app name>
+	heroku config:set HEROKU_APP_NAME='<your Heroku app name here>' --app <heroku app name>
+
 
 Step 4 - Push the project to heroku
 
 	git push heroku master
 	heroku ps:scale web=1
 
-You can now verify that the app is 	successfully deployed:
+You can now verify that the app is successfully deployed:
 
-	heroku logs -tail
+	heroku logs -tail --app <heroku app name>
 
 And you can run the app in your browser with the following command line:
 
