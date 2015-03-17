@@ -45,9 +45,9 @@ Step 3 - Configure the new Heroku app with your App Platform credentials and Her
 
 Log into the Bandwidth Platform UI, go to "Account" tab and obtain your credentials. Then run the following commands:
 
-	heroku config:set BANDWIDTH_USER_ID='your user id from Bandwidth Platform' --app <heroku app name>
-	heroku config:set BANDWIDTH_API_TOKEN='your api token from Bandwidth Platform' --app <heroku app name>
-	heroku config:set BANDWIDTH_API_SECRET='your api secret from Bandwidth Platform' --app <heroku app name>
+	heroku config:set BANDWIDTH_USER_ID='<your user id from Bandwidth Platform>' --app <heroku app name>
+	heroku config:set BANDWIDTH_API_TOKEN='<your api token from Bandwidth Platform>' --app <heroku app name>
+	heroku config:set BANDWIDTH_API_SECRET='<your api secret from Bandwidth Platform>' --app <heroku app name>
 	heroku config:set HEROKU_APP_NAME='<your Heroku app name here>' --app <heroku app name>
 
 
