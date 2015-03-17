@@ -4,8 +4,6 @@ import com.bandwidth.sdk.BandwidthClient;
 import com.bandwidth.sdk.model.PhoneNumber;
 import com.bandwidth.sdk.model.ResourceList;
 import com.reminder.bean.NumbersBean;
-import org.apache.http.HttpEntity;
-import org.apache.http.util.EntityUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
