@@ -26,12 +26,16 @@ public class CallbackServlet extends HttpServlet {
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
 
+            System.out.println(event.toString());
+
             if (event.getEventType().toString().equals("answer")) {
 
                 sendGather(call);
 
             } else if (event.getEventType().toString().equals("gather")) {
-                System.out.println(event.toString());
+
+
+
                 String inputDigit = event.getProperty("digits");
 
 
