@@ -19,17 +19,17 @@ import java.util.Map;
 
 public class CallbackServlet extends HttpServlet {
 
-    private static final Logger LOG =  LoggerFactory.getLogger(CallbackServlet.class);
+  //  private static final Logger LOG =  LoggerFactory.getLogger(CallbackServlet.class);
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             String body = getBody(req);
-            Event event = EventBase.createEventFromString(body);
-            
+            Event event = (Event) EventBase.createEventFromString(body);
+
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
-
-            LOG.info(event.toString());
+            System.out.println(body);
+           // LOG.info(event.toString());
 
             if (event.getEventType().toString().equals("answer")) {
 
@@ -37,10 +37,7 @@ public class CallbackServlet extends HttpServlet {
 
             } else if (event.getEventType().toString().equals("gather")) {
 
-
-
                 String inputDigit = event.getProperty("digits");
-
 
                     if (inputDigit.equals("1")) {
 
