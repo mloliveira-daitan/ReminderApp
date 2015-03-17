@@ -5,7 +5,6 @@ You'll need the following prerequisites to run these:
 - A Bandwidth Application Platform account (https://catapult.inetwork.com/pages/signup.jsf)
 - Maven installed (http://maven.apache.org/download.cgi#Installation)
 - Jdk installed (http://docs.oracle.com/javase/7/docs/webnotes/install/index.html)
--
 
 Now we want to deploy it to a running web server. These are the steps to deploy it to Heroku:
 
