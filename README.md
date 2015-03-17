@@ -29,14 +29,10 @@ Step 1 - Set up the git repo
 From the ReminderApp directory
 
 	git init
-	git add .
-	git commit -m "my bandwidth example"
 
 Step 2 - Create a new Heroku app
 
 	heroku apps:create
-	git remote add heroku git@heroku.com:<new-app>.git
-    Where <new-app> is the app name allocated by Heroku.
 
 Step 3 - Configure the new Heroku app with your App Platform credentials and Heroku app name
 
@@ -50,11 +46,11 @@ Note that your Bandwidth user id, api token and api secret are obtained by loggi
 Step 4 - Push the project to heroku
 
 	git push heroku master
-	heroku ps:scale web=1 --app <heroku app name>
+	heroku ps:scale web=1
 
 You can now verify that the app is 	successfully deployed:
 
-	heroku logs -tail --app <heroku-app-name>
+	heroku logs -tail
 
 And you can run the app in your browser with the following command line:
 
