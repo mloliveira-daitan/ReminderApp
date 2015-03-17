@@ -74,9 +74,9 @@ Click on the Create Call button. In a few seconds, you'll receive a phone call i
 
 You can go through the following options in your phone:
 
-Press 1 to terminate the call.
-Press 2 to listen to the appointment location details.
-Press 3 to repeat the menu.
+	Press 1 to terminate the call.
+	Press 2 to listen to the appointment location details.
+	Press 3 to repeat the menu.
 
 At the same time, you can view information from this call, by clicking on the View Call Details button, leading to a table where you can see all current information from the call.
 
