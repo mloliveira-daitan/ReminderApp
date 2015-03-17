@@ -1,12 +1,7 @@
 package com.reminder.controller;
 
-import com.bandwidth.sdk.BandwidthClient;
 import com.bandwidth.sdk.model.Call;
-import com.bandwidth.sdk.model.PhoneNumber;
-import com.bandwidth.sdk.model.ResourceList;
 import com.reminder.bean.CallBean;
-import com.reminder.bean.NumbersBean;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,11 +34,14 @@ public class CallController extends HttpServlet {
             callBean.setEndTime(call.getEndTime());
             callBean.setChargeableDuration(call.getChargeableDuration());
             callBean.setCallbackUrl(call.getCallbackUrl());
-            /*callBean.setTranscriptionsEnabled(call.getTranscriptionsEnabled());
-            callBean.setTranscriptions(call.getTranscriptions());
-            callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
             callBean.setRecordings(call.getRecordings());
             callBean.setEvents(call.getEvents());
+
+            //SDK doesn't support these methods yet.
+            //callBean.setTranscriptionsEnabled(call.getTranscriptionsEnabled());
+            //callBean.setTranscriptions(call.getTranscriptions());
+            //callBean.setRecordingsEnabled(call.getRecordingsEnabled());*/
+
         } catch (Exception e) {
             e.printStackTrace();
         }

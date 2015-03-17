@@ -4,6 +4,8 @@ import com.bandwidth.sdk.BandwidthClient;
 import com.bandwidth.sdk.model.PhoneNumber;
 import com.bandwidth.sdk.model.ResourceList;
 import com.reminder.bean.NumbersBean;
+import org.apache.http.HttpEntity;
+import org.apache.http.util.EntityUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,16 +18,15 @@ import java.util.List;
 
 public class ListNumbersController extends HttpServlet {
 
-    private static String userId = "u-m6vtffypexjt3k64ecumycy";
-    private static String apiToken =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
-    private static String apiSecret = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
-
+    private static String userId = System.getenv("BANDWIDTH_USER_ID");// = "u-m6vtffypexjt3k64ecumycy";
+    private static String apiToken = System.getenv("BANDWIDTH_API_TOKEN");// =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
+    private static String apiSecret = System.getenv("BANDWIDTH_API_SECRET");// = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        BandwidthClient.getInstance().setCredentials(userId,apiToken,apiSecret);
+        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
         NumbersBean numbersBean = new NumbersBean();
         List<String> numberList = new ArrayList();
