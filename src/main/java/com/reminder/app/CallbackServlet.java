@@ -24,8 +24,8 @@ public class CallbackServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             String body = getBody(req);
-            Event event = (Event) EventBase.createEventFromString(body);
-
+            Event event = EventBase.createEventFromString(body);
+            
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
 
