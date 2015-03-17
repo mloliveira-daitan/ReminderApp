@@ -43,6 +43,7 @@ public class NumbersServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
+
         }
 
         request.setAttribute("numbersBean", numbersBean);

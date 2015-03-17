@@ -34,7 +34,7 @@ public class CallbackServlet extends HttpServlet {
 
                 String inputDigit = event.getProperty("digits");
 
-                if (!inputDigit.isEmpty()){
+                
                     if (inputDigit.equals("1")) {
 
                         call.hangUp();
@@ -48,7 +48,7 @@ public class CallbackServlet extends HttpServlet {
                         call.stopSentence();
                         sendGather(call);
                     }
-                }
+
 
             } else if (event.getEventType().toString().equals("speak")) {
 
@@ -98,7 +98,7 @@ public class CallbackServlet extends HttpServlet {
 
         Map<String, Object> promptParams = new HashMap<String, Object>();
         String reminderSentence = "Hello! This is the appointment reminder app from Bandwidth." +
-                " Your appointment is scheduled to Wednesday at 3 PM. . ." + "Please press 1 to end this call. " +
+                " Your appointment is scheduled to Wednesday at 3 PM. ." + "Please press 1 to end this call. " +
                 "Press 2 to receive directions or press 3 to repeat this menu.";
         promptParams.put("sentence", reminderSentence);
         promptParams.put("voice", "kate");
