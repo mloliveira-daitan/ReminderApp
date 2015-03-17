@@ -33,6 +33,12 @@ Step 2 - Create a new Heroku app
 
 	heroku apps:create
 
+		Creating infinite-springs-9079... done, stack is cedar-14
+    	https://infinite-springs-9079.herokuapp.com/ | git@heroku.com:infinite-springs-9079.git
+    	Git remote heroku added
+
+Your Heroku app name is infinite-springs-9079.
+
 Step 3 - Configure the new Heroku app with your App Platform credentials and Heroku app name
 
 	heroku config:set BANDWIDTH_USER_ID='your user id from the app platform' --app <heroku app name>
