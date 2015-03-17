@@ -15,7 +15,7 @@ public class CallServlet extends HttpServlet{
 
     private static String toNumber;
     private static String fromNumber;
-    private static String callbackUrl = System.getenv("HEROKU_APP_NAME").concat("/callback");
+    private static String callbackUrl =  System.getenv("HEROKU_APP_NAME") + ".herokuapp.com/callback";
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
