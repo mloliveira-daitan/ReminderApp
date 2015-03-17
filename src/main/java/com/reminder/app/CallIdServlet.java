@@ -1,4 +1,4 @@
-package com.reminder.controller;
+package com.reminder.app;
 
 import com.bandwidth.sdk.model.Call;
 import com.reminder.bean.CallBean;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class CallController extends HttpServlet {
+public class CallIdServlet extends HttpServlet {
 
 
     @Override
@@ -48,7 +48,7 @@ public class CallController extends HttpServlet {
 
         request.setAttribute("callBean", callBean);
 
-        RequestDispatcher rd=request.getRequestDispatcher("call_id.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/call_id.jsp");
         rd.forward(request, response);
     }
 }

@@ -1,4 +1,4 @@
-package com.reminder.controller;
+package com.reminder.app;
 
 import com.bandwidth.sdk.BandwidthClient;
 import com.bandwidth.sdk.model.PhoneNumber;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListNumbersController extends HttpServlet {
+public class NumbersServlet extends HttpServlet {
 
     private static String userId = System.getenv("BANDWIDTH_USER_ID");// = "u-m6vtffypexjt3k64ecumycy";
     private static String apiToken = System.getenv("BANDWIDTH_API_TOKEN");// =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
@@ -47,7 +47,7 @@ public class ListNumbersController extends HttpServlet {
 
         request.setAttribute("numbersBean", numbersBean);
 
-        RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/start.jsp");
         rd.forward(request, response);
     }
 }

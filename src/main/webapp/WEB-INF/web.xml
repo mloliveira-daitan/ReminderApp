@@ -25,45 +25,23 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Index</servlet-name>
-        <servlet-class>com.reminder.controller.ListNumbersController</servlet-class>
+        <servlet-name>StartServlet</servlet-name>
+        <servlet-class>com.reminder.app.NumbersServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Index</servlet-name>
+        <servlet-name>StartServlet</servlet-name>
         <url-pattern>/start</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>CallId</servlet-name>
-        <servlet-class>com.reminder.controller.CallController</servlet-class>
+        <servlet-class>com.reminder.app.CallIdServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>CallId</servlet-name>
         <url-pattern>/callid</url-pattern>
     </servlet-mapping>
-<!--
-    <servlet>
-        <servlet-name>Welcome</servlet-name>
-        <servlet-class>com.reminder.app.WelcomeServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Welcome</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>-->
-
-    <welcome-file-list>
-        <welcome-file>
-            /start
-            Index
-            Index/
-            /Index/
-            /Index
-            /index.jsp
-            /index.jsp/
-        </welcome-file>
-    </welcome-file-list>
 
 </web-app>
