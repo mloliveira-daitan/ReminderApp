@@ -31,7 +31,7 @@ public class CallbackServlet extends HttpServlet {
                 sendGather(call);
 
             } else if (event.getEventType().toString().equals("gather")) {
-
+                System.out.println(event.toString());
                 String inputDigit = event.getProperty("digits");
 
 
