@@ -13,19 +13,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 
 public class CallbackServlet extends HttpServlet {
-    public static final Logger logger = Logger
-            .getLogger(Main.class.getName());
+
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.finer("doPost(ENTRY)");
-
         try {
             String body = getBody(req);
-            logger.finest(body);
             Event event = (Event) EventBase.createEventFromString(body);
 
             String callId = event.getProperty("callId");
@@ -63,24 +58,17 @@ public class CallbackServlet extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_OK);
 
         } catch (Exception e) {
-            logger.severe(e.toString());
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             e.printStackTrace();
 
         }
-
-
-        logger.finer("doPost(EXIT)");
     }
-
-
 
     public void destroy() {
         // do nothing.
     }
 
     protected String getBody(HttpServletRequest req) {
-        logger.finest("getBody(ENTRY)");
 
         StringBuilder sb = new StringBuilder();
         try {
@@ -97,11 +85,8 @@ public class CallbackServlet extends HttpServlet {
                 read = br.readLine();
             }
         } catch (Exception e) {
-            logger.severe(e.toString());
             e.printStackTrace();
         }
-
-        logger.finest("getBody(EXIT)");
         return sb.toString();
     }
 
@@ -120,7 +105,6 @@ public class CallbackServlet extends HttpServlet {
 
         try {
             call.createGather(gatherParams, promptParams);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
