@@ -35,7 +35,7 @@ Step 2 - Create a new Heroku app
 
 The following output will be showed in the console:
 
-		Creating <strong>infinite-springs-9079</strong>... done, stack is cedar-14
+		Creating infinite-springs-9079... done, stack is cedar-14
     	https://infinite-springs-9079.herokuapp.com/ | git@heroku.com:infinite-springs-9079.git
     	Git remote heroku added
 
