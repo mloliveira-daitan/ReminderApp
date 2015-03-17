@@ -34,18 +34,20 @@ public class CallbackServlet extends HttpServlet {
 
                 String inputDigit = event.getProperty("digits");
 
-                if (inputDigit.equals("1")) {
+                if (!inputDigit.isEmpty()){
+                    if (inputDigit.equals("1")) {
 
-                    call.hangUp();
+                        call.hangUp();
 
-                } else if (inputDigit.equals("2")) {
+                    } else if (inputDigit.equals("2")) {
 
-                    call.stopSentence();
-                    call.speakSentence("Your appointment location is around the corner, at 3 PM");
+                        call.stopSentence();
+                        call.speakSentence("Your appointment location is around the corner, at 3 PM");
 
-                } else {
-                    call.stopSentence();
-                    sendGather(call);
+                    } else {
+                        call.stopSentence();
+                        sendGather(call);
+                    }
                 }
 
             } else if (event.getEventType().toString().equals("speak")) {
