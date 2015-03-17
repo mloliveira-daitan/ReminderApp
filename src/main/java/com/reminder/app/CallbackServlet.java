@@ -3,6 +3,8 @@ package com.reminder.app;
 import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ import java.util.Map;
 
 public class CallbackServlet extends HttpServlet {
 
+    private static final Logger LOG =  LoggerFactory.getLogger(CallbackServlet.class);
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
@@ -26,7 +29,7 @@ public class CallbackServlet extends HttpServlet {
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
 
-            System.out.println(event.toString());
+            LOG.info(event.toString());
 
             if (event.getEventType().toString().equals("answer")) {
 
