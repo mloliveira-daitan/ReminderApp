@@ -9,25 +9,18 @@ import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.logging.Logger;
 
 
 public class CallServlet extends HttpServlet{
-
-    public static final Logger logger = Logger
-        .getLogger(Main.class.getName());
 
     private static String toNumber;
     private static String fromNumber;
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.finer("doPost(ENTRY)");
 
         try {
             String body = getBody(req);
             String parsedBody = body.replaceAll("%2B", "+");
-
-            logger.finest(body);
 
             String delims = "[=&]+";
             String[] tokens = parsedBody.split(delims);
@@ -41,26 +34,20 @@ public class CallServlet extends HttpServlet{
                 }
             }
 //TBD PARAMETER
-            Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/callback", "testcall");
+            Call call = Call.create(toNumber, fromNumber, System.getenv("HEROKU_APP_NAME"), "testcall");
             HttpSession session = req.getSession();
             session.setAttribute("callid", call.getId());
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
         } catch (Exception e) {
-            logger.severe(e.toString());
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             e.printStackTrace();
 
         }
-
-
-        logger.finer("doPost(EXIT)");
     }
 
     protected String getBody(HttpServletRequest req) {
-        logger.finest("getBody(ENTRY)");
-
         StringBuilder sb = new StringBuilder();
         try {
             InputStream in = req.getInputStream();
@@ -75,11 +62,8 @@ public class CallServlet extends HttpServlet{
                 read = br.readLine();
             }
         } catch (Exception e) {
-            logger.severe(e.toString());
             e.printStackTrace();
         }
-
-        logger.finest("getBody(EXIT)");
         return sb.toString();
     }
 
