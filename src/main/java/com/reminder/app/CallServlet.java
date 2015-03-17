@@ -13,12 +13,12 @@ import java.util.logging.Logger;
 
 
 public class CallServlet extends HttpServlet{
-public static final Logger logger = Logger
+
+    public static final Logger logger = Logger
         .getLogger(Main.class.getName());
 
     private static String toNumber;
     private static String fromNumber;
-
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         logger.finer("doPost(ENTRY)");
@@ -82,8 +82,6 @@ public static final Logger logger = Logger
         logger.finest("getBody(EXIT)");
         return sb.toString();
     }
-
-
 
     public void destroy()
     {
