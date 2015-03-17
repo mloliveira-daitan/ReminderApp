@@ -1,19 +1,7 @@
 package com.reminder.app;
 
-import com.bandwidth.sdk.*;
-import com.bandwidth.sdk.model.Account;
-import com.bandwidth.sdk.model.Call;
-import com.bandwidth.sdk.model.Gather;
-import com.bandwidth.sdk.model.Gender;
-import com.bandwidth.sdk.model.events.EventBase;
-import org.apache.http.HttpResponse;
-import org.apache.http.util.EntityUtils;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Main
 {
@@ -42,7 +30,7 @@ public class Main
         // behavior.
         // Read more here:
         // http://wiki.eclipse.org/Jetty/Reference/Jetty_Classloading
-        root.setParentLoaderPriority(true);
+        //root.setParentLoaderPriority(true);
 
         server.setHandler(root);
 

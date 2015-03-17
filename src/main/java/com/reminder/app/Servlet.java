@@ -4,16 +4,21 @@ import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
 
-import javax.servlet.http.*;
-import java.io.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
 
-public class Servlet extends HttpServlet{
-public static final Logger logger = Logger
-        .getLogger(Main.class.getName());
+public class Servlet extends HttpServlet {
+    public static final Logger logger = Logger
+            .getLogger(Main.class.getName());
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         logger.finer("doPost(ENTRY)");
@@ -26,30 +31,31 @@ public static final Logger logger = Logger
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
 
-            if ( event.getEventType().toString().equals("answer")){
-                System.out.println("SENDING GATHER");
+            if (event.getEventType().toString().equals("answer")) {
 
                 sendGather(call);
-            }
-            else if(event.getEventType().toString().equals("gather")){
-                System.out.println("RECEIVING GATHER");
+
+            } else if (event.getEventType().toString().equals("gather")) {
+
                 String inputDigit = event.getProperty("digits");
 
-                if (inputDigit.equals("1")){
+                if (inputDigit.equals("1")) {
+
                     call.hangUp();
 
-                }
-                else if (inputDigit.equals("2")){
+                } else if (inputDigit.equals("2")) {
+
                     call.stopSentence();
                     call.speakSentence("Your appointment location is around the corner, at 3 PM");
-                }
-                else {
+
+                } else {
                     call.stopSentence();
                     sendGather(call);
                 }
-            }
-            else if (event.getEventType().toString().equals("speak")){
-                if (event.getProperty("state").toString().equals("PLAYBACK_STOP") ){
+
+            } else if (event.getEventType().toString().equals("speak")) {
+
+                if (event.getProperty("state").toString().equals("PLAYBACK_STOP")) {
                     call.hangUp();
                 }
             }
@@ -65,6 +71,12 @@ public static final Logger logger = Logger
 
 
         logger.finer("doPost(EXIT)");
+    }
+
+
+
+    public void destroy() {
+        // do nothing.
     }
 
     protected String getBody(HttpServletRequest req) {
@@ -93,12 +105,6 @@ public static final Logger logger = Logger
         return sb.toString();
     }
 
-    public void destroy()
-    {
-        // do nothing.
-    }
-
-
     private void sendGather(Call call) {
         Map<String, Object> gatherParams = new HashMap<String, Object>();
         gatherParams.put("maxDigits", "1");
@@ -114,9 +120,9 @@ public static final Logger logger = Logger
 
         try {
             call.createGather(gatherParams, promptParams);
-        }
-        catch (Exception e){
-            System.out.println("Exception: " + e.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
