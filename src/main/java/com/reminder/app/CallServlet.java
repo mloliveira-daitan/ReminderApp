@@ -40,8 +40,8 @@ public class CallServlet extends HttpServlet{
                     fromNumber = tokens[i+1];
                 }
             }
-
-            Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/servlet", "testcall");
+//TBD PARAMETER
+            Call call = Call.create(toNumber, fromNumber, "https://sheltered-eyrie-4361.herokuapp.com/callback", "testcall");
             HttpSession session = req.getSession();
             session.setAttribute("callid", call.getId());
 
