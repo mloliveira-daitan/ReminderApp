@@ -29,7 +29,6 @@ public class CallbackServlet extends HttpServlet {
             String callId = event.getProperty("callId");
             Call call = Call.get(callId);
             System.out.println(body);
-           // LOG.info(event.toString());
 
             if (event.getEventType().toString().equals("answer")) {
 
