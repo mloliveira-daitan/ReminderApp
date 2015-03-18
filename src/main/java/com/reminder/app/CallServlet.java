@@ -34,7 +34,7 @@ public class CallServlet extends HttpServlet{
                     fromNumber = tokens[i+1];
                 }
             }
-//TBD PARAMETER
+
             Call call = Call.create(toNumber, fromNumber, callbackUrl, "");
             HttpSession session = req.getSession();
             session.setAttribute("callid", call.getId());

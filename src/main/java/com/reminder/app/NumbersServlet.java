@@ -32,13 +32,7 @@ public class NumbersServlet extends HttpServlet {
         List<String> numberList = new ArrayList();
         numbersBean.setNumbers(numberList);
 
-        try {
-            BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
-        } catch (Exception e){
-
-            System.out.println("\n\nERROCLIENT" + e.toString());
-            numbersBean.setNumbersError(e.toString());
-        }
+        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
 
         try {
             ResourceList<PhoneNumber> userNumbers = PhoneNumber.list();
@@ -46,12 +40,8 @@ public class NumbersServlet extends HttpServlet {
             for (PhoneNumber number : userNumbers){
                 numberList.add(number.getNumber());
             }
-
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            numbersBean.setNumbersError(e.toString());
-
-            System.err.println("\n\nERROR::: \n\n" + e.toString());
         }
 
         request.setAttribute("numbersBean", numbersBean);
