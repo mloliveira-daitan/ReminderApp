@@ -28,11 +28,11 @@ public class CallbackServlet extends HttpServlet {
             Call call = Call.get(callId);
             System.out.println(body);
 
-            if (EventType.ANSWER.equals(event.getEventType().toString())) {
+            if (EventType.ANSWER.equals(event.getEventType())) {
 
                 sendGather(call);
 
-            } else if (EventType.GATHER.equals(event.getEventType().toString())) {
+            } else if (EventType.GATHER.equals(event.getEventType())) {
 
                 String inputDigit = event.getProperty("digits");
 
@@ -51,9 +51,9 @@ public class CallbackServlet extends HttpServlet {
                     }
 
 
-            } else if (EventType.SPEAK.equals(event.getEventType().toString())) {
+            } else if (EventType.SPEAK.equals(event.getEventType())) {
 
-                if (event.getProperty("state").toString().equals("PLAYBACK_STOP")) {
+                if (event.getProperty("state").equals("PLAYBACK_STOP")) {
                     call.hangUp();
                 }
             }
