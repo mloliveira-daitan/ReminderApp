@@ -4,7 +4,7 @@ You'll need the following prerequisites to run these:
 
 - A Bandwidth Application Platform account (https://catapult.inetwork.com/pages/signup.jsf)
 - Maven installed (http://maven.apache.org/download.cgi#Installation)
-- Jdk installed (http://docs.oracle.com/javase/7/docs/webnotes/install/index.html)
+- Jdk installed (http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 Create a new directory where you want to clone the example app and run the following commands from there:
 
@@ -49,7 +49,6 @@ Log into the Bandwidth Platform UI, go to "Account" tab and obtain your credenti
 	heroku config:set BANDWIDTH_API_TOKEN='<your api token from Bandwidth Platform>' --app <heroku app name>
 	heroku config:set BANDWIDTH_API_SECRET='<your api secret from Bandwidth Platform>' --app <heroku app name>
 	heroku config:set HEROKU_APP_NAME='<your Heroku app name here>' --app <heroku app name>
-
 
 Step 4 - Push the project to heroku
 
