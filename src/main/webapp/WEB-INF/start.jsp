@@ -3,6 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% NumbersBean numbersBean=(NumbersBean)request.getAttribute("numbersBean");
 pageContext.setAttribute("numbers", numbersBean.getNumbers());
+pageContext.setAttribute("numbersError", numbersBean.getNumbersError());
 %>
 <html lang="en"><head>
     <meta charset="utf-8">
@@ -54,8 +55,16 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
 		<h1>Bandwidth Sample App</h1>
 		<p class="lead">Voice Appointment Reminders</p>
 		</div>
+<c:set var="nError" scope="session" value="${numbersError}"/>
+<c:if test="${nError}">
+        <div id="numbersErrorBox" class="bs-example">
+            <div class="alert alert-danger alert-error">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+               <strong>Authentication Error!</strong> ${numbersError}
+            </div>
 
-
+        </div>
+</c:if>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="well well-lg">

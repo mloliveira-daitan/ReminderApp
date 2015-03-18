@@ -28,11 +28,17 @@ public class NumbersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
-
         NumbersBean numbersBean = new NumbersBean();
         List<String> numberList = new ArrayList();
         numbersBean.setNumbers(numberList);
+
+        try {
+            BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
+        } catch (Exception e){
+
+            System.out.println("\n\nERROCLIENT" + e.toString());
+            numbersBean.setNumbersError(e.toString());
+        }
 
         try {
             ResourceList<PhoneNumber> userNumbers = PhoneNumber.list();
@@ -43,7 +49,9 @@ public class NumbersServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            
+            numbersBean.setNumbersError(e.toString());
+
+            System.err.println("\n\nERROR::: \n\n" + e.toString());
         }
 
         request.setAttribute("numbersBean", numbersBean);
