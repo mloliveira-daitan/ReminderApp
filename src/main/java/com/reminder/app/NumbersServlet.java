@@ -16,13 +16,9 @@ import java.util.List;
 
 public class NumbersServlet extends HttpServlet {
 
-    private static String userId = System.getenv("BANDWIDTH_USER_ID");// = "u-m6vtffypexjt3k64ecumycy";
-    private static String apiToken = System.getenv("BANDWIDTH_API_TOKEN");// =  "t-tlq3f7nk2w5fjxre7zdmirq" ;
-    private static String apiSecret = System.getenv("BANDWIDTH_API_SECRET");// = "buh23662yqwejlzohuqzpkouao22wirmhlrmgnq";
-//
-//    heroku config:set BANDWIDTH_USER_ID='u-m6vtffypexjt3k64ecumycy'
-//    heroku config:set BANDWIDTH_API_TOKEN='t-tlq3f7nk2w5fjxre7zdmirq'
-//    heroku config:set BANDWIDTH_API_SECRET='buh23662yqwejlzohuqzpkouao22wirmhlrmgnq'
+    private static String userId = System.getenv("BANDWIDTH_USER_ID");
+    private static String apiToken = System.getenv("BANDWIDTH_API_TOKEN");
+    private static String apiSecret = System.getenv("BANDWIDTH_API_SECRET");
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

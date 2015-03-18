@@ -3,8 +3,7 @@ package com.reminder.app;
 import com.bandwidth.sdk.model.Call;
 import com.bandwidth.sdk.model.events.Event;
 import com.bandwidth.sdk.model.events.EventBase;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.bandwidth.sdk.model.events.EventType;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +18,7 @@ import java.util.Map;
 
 public class CallbackServlet extends HttpServlet {
 
-  //  private static final Logger LOG =  LoggerFactory.getLogger(CallbackServlet.class);
-
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             String body = getBody(req);
@@ -30,11 +28,11 @@ public class CallbackServlet extends HttpServlet {
             Call call = Call.get(callId);
             System.out.println(body);
 
-            if (event.getEventType().toString().equals("answer")) {
+            if (EventType.ANSWER.equals(event.getEventType().toString())) {
 
                 sendGather(call);
 
-            } else if (event.getEventType().toString().equals("gather")) {
+            } else if (EventType.GATHER.equals(event.getEventType().toString())) {
 
                 String inputDigit = event.getProperty("digits");
 
@@ -53,7 +51,7 @@ public class CallbackServlet extends HttpServlet {
                     }
 
 
-            } else if (event.getEventType().toString().equals("speak")) {
+            } else if (EventType.SPEAK.equals(event.getEventType().toString())) {
 
                 if (event.getProperty("state").toString().equals("PLAYBACK_STOP")) {
                     call.hangUp();

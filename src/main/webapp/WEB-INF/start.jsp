@@ -79,7 +79,6 @@ pageContext.setAttribute("numbers", numbersBean.getNumbers());
                 <button type="button" class="btn btn-success btn-lg" id='createCall'>Start Call</button>
               </div>
             </div>
-            <!--input type="hidden" name="callid" id="callid" value="" /-->
           </form>
 				</div>
 			</div>
